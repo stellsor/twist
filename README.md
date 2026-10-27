@@ -4,7 +4,7 @@ A compact GPO fishing app with a controller, local mode, and workers for separat
 
 **[Download the latest release](https://github.com/Stellsor/twist/releases/latest)** · [All releases](https://github.com/Stellsor/twist/releases) · [Usage guide](docs/USAGE.md)
 
-Current version: **0.7.18**. If the release is still publishing, use the [audited ZIP](https://github.com/Stellsor/twist/raw/refs/heads/main/releases/twist-0.7.18-public.zip).
+Current version: **0.7.19**. If the release is still publishing, use the [audited ZIP](https://github.com/Stellsor/twist/raw/refs/heads/main/releases/twist-0.7.19-public.zip).
 
 ## Quick start
 
@@ -29,4 +29,6 @@ Each worker uses the real mouse and keyboard inside its Windows session and need
 
 ## Updates
 
-Close the older controller and workers, extract the new release, and restart every component from that version. Settings and history remain in `%LOCALAPPDATA%/twist-rdp`. Fishing starts stopped.
+From 0.7.19 onward, the launcher checks for new app releases and current offsets every time it opens. Choose **Download update** at the bottom when a newer version is available. Close controllers and workers using that folder first; the update downloads and installs in the same folder, then reopens the launcher. Settings and history stay in `%LOCALAPPDATA%/twist-rdp`.
+
+Install 0.7.19 manually once if you are using an older launcher.

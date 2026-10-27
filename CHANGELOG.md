@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.19
+
+- The launcher checks for newer stable app releases and offers Download update at the bottom.
+- Accepted updates download beside the launcher, verify their checksum, install in the same folder and reopen the launcher. Close controllers/workers using that folder first.
+- Latest offsets are checked on every launcher opening; each Roblox client uses its matching validated version with cached/bundled fallback.
+- Future ZIPs omit THIRD-PARTY-NOTICES.txt and the README Distribution section.
+- Install this version manually once to enable future app-update prompts. Settings and history are preserved.
+
 ## 0.7.18
 
 - Settings save automatically as they change, including bait, fruit handling, timing, session limits, webhook and mythical ping options.

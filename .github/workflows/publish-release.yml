@@ -56,7 +56,9 @@ jobs:
           $zip = [System.IO.Compression.ZipFile]::OpenRead($package)
           try {
             $prefix = "twist-$version/"
-            $allowedFiles = @('twist Launcher.exe', 'README.md', 'THIRD-PARTY-NOTICES.txt', 'app/twist.exe', 'app/Dashboard.xaml', 'app/Worker.xaml', 'app/twist.ico', 'app/offsets.json', 'app/data/item-catalog.json')
+            $requiredFiles = @('twist Launcher.exe', 'README.md', 'app/twist.exe', 'app/Dashboard.xaml', 'app/Worker.xaml', 'app/twist.ico', 'app/offsets.json', 'app/data/item-catalog.json')
+            $allowedFiles = @($requiredFiles)
+            if ([version]$version -le [version]'0.7.18') { $allowedFiles += 'THIRD-PARTY-NOTICES.txt' }
             $names = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::Ordinal)
             foreach ($entry in $zip.Entries) {
               $name = $entry.FullName
@@ -65,8 +67,14 @@ jobs:
               if ($relative -notin $allowedFiles -and -not $relative.StartsWith('app/assets/', [System.StringComparison]::Ordinal)) { throw "Unexpected public file: $relative" }
               if ($relative -match '(?i)(\.(cs|pdb|map|cmd|bat|csproj|sln|zip)$|mapping|source)') { throw 'Private build file in ZIP.' }
             }
-            foreach ($required in $allowedFiles) {
+            foreach ($required in $requiredFiles) {
               if (-not $names.Contains($prefix + $required)) { throw "Missing public file: $required" }
+            }
+            if ([version]$version -gt [version]'0.7.18') {
+              $readmeEntry = $zip.GetEntry($prefix + 'README.md')
+              $reader = [System.IO.StreamReader]::new($readmeEntry.Open())
+              try { $readmeText = $reader.ReadToEnd() } finally { $reader.Dispose() }
+              if ([regex]::IsMatch($readmeText, '(?m)^## Distribution\s*$')) { throw 'Distribution section must not be packaged.' }
             }
             $executables = $manifest.protected_executables
             if ($executables.Count -ne 2 -or -not $executables.ContainsKey('twist Launcher.exe') -or -not $executables.ContainsKey('app/twist.exe')) { throw 'Missing protected executable hashes.' }

@@ -1,18 +1,17 @@
 {
-  "version": "0.7.18",
-  "asset": "releases/twist-0.7.18-public.zip",
-  "sha256": "845d6bf71b1172699f2b329c80457e70a706698464804a400959c74e45c0f1d9",
-  "bytes": 8691853,
-  "obfuscator": "Obfuscar 2.2.49",
+  "version": "0.7.19",
+  "asset": "releases/twist-0.7.19-public.zip",
+  "sha256": "b6c507958dba2e9085e94369958f569a8570f70af1f893d50d3253ffff378065",
+  "bytes": 8712351,
   "protected_executables": {
-    "twist Launcher.exe": "8f8e25c27b06d59960106914679ce4a63f61d45a4c3b670575aa85a802d30624",
-    "app/twist.exe": "5c9dc3087cc6a9adff4f150bb10e69c9adae0a08a5c33a67d13a9b35fe8071ef"
+    "twist Launcher.exe": "b46326caa4bb1854d39afc92ac637e1cddea65b016b468af44805678e1a9b151",
+    "app/twist.exe": "3e8e690c1c982168fdd0881d0a3342fd65a6ba5b3e0cfb3e94b11a69245cfb7c"
   },
   "notes": [
-    "Settings save automatically as they change, including bait, fruit handling, timing, session limits, webhook and mythical ping options.",
-    "Webhook URLs and incomplete alert drafts are encrypted for the current Windows user.",
-    "Settings for unavailable workers are retained and synchronized when the worker reconnects.",
-    "Includes Roblox reopen/retry and dead-session cleanup from 0.7.17.",
-    "Restart the controller and all workers from the new version folder. Fishing settings apply on the next Start."
+    "The launcher checks for newer stable app releases and offers Download update at the bottom.",
+    "Accepted updates download beside the launcher, verify their checksum, install in the same folder and reopen the launcher. Close controllers/workers using that folder first.",
+    "Latest offsets are checked on every launcher opening; each Roblox client uses its matching validated version with cached/bundled fallback.",
+    "Future ZIPs omit THIRD-PARTY-NOTICES.txt and the README Distribution section.",
+    "Install this version manually once to enable future app-update prompts. Settings and history are preserved."
   ]
 }

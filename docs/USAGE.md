@@ -1,6 +1,16 @@
-# twist 0.7.18
+# twist 0.7.19
 
 Open **twist Launcher.exe** and choose Worker, Controller or Local. Controller can request administrator access for discovering workers under other Windows users.
+
+## Launcher app and offset updates
+
+Every launcher opening checks the latest stable GitHub release and downloads the latest validated JSON from https://offsets.imtheo.lol/offsets.json. A newer app version appears at the bottom with **Download update**. Updates are optional. The ZIP downloads beside the launcher and is checked against GitHub’s SHA-256 digest.
+
+Close all twist controllers and workers using that folder before updating. The launcher stages the verified package, closes itself, replaces files in the same folder, and opens the new launcher. Existing LocalAppData settings/history and unrelated files remain intact. File replacement errors roll back copied files. Update failures leave the ordinary launcher usable.
+
+Offsets update independently from app updates. Each Roblox client uses the validated offsets for its own version; cached or bundled matching data remains available if the site is unavailable. The downloaded ZIP stays in the app folder.
+
+Install 0.7.19 manually once to enable app-update prompts; earlier launchers do not contain this feature.
 
 ## Automatic settings saving
 
@@ -30,7 +40,7 @@ Fish and Fruits cards now sort from highest rarity to lowest, with alphabetical 
 
 ## Fruit inventory and Discord alerts
 
-**Fruits** shows stored devil fruits with quantities, rarity filters, search and colored icons from the [Grand Piece Online Wiki](https://grand-piece-online.fandom.com/wiki/Devil_Fruits). **Fish** remains fish-only. Both views support individual accounts and **Total · all accounts**, merging quantities without counting reconnected copies twice. All 37 current wiki fruit icons are bundled and work offline; they override older grayscale mesh previews. Bomu/Bomb and Ptero/Pteranodon aliases use matching icons. Rarities use captured game styling with the [official game-description tiers](https://www.roblox.com/games/1730877806/Grand-Piece-Online) as fallback.
+**Fruits** shows stored devil fruits with quantities, rarity filters, search and colored icons from the [Grand Piece Online Wiki](https://grand-piece-online.fandom.com/wiki/Devil_Fruits). **Fish** remains fish-only. Both views support individual accounts and **Total · all accounts**, merging quantities without counting reconnected copies twice. All 37 fruit icons are bundled and work offline; they override older grayscale mesh previews. Bomu/Bomb and Ptero/Pteranodon aliases use matching icons. Rarities use captured game styling with the [official game-description tiers](https://www.roblox.com/games/1730877806/Grand-Piece-Online) as fallback.
 
 Open **Alerts** on the controller (or Local mode). Paste a Discord webhook URL and enable stored-fruit notifications; changes save automatically. **Send test** verifies your webhook without pinging anyone. One controller setup covers all connected RDP workers. The masked URL is encrypted for the current Windows user in LocalAppData and is never included in worker profiles or RDP packets.
 
@@ -88,4 +98,4 @@ Close older controllers/workers and start every session from this same build. Yo
 
 This package contains obfuscated executables and required runtime assets. It contains no C# source, source archive, debug symbols, private obfuscation maps or account profiles. Obfuscation increases reverse-engineering effort; it does not make distributed code unrecoverable.
 
-Publish this 0.7.18 public ZIP or the prepared publish/github-0.7.18 folder. Earlier 0.7.6 packages contained a source archive and should not be used as the private-source public release.
+Publish this 0.7.19 public ZIP or the prepared publish/github-0.7.19 folder. Earlier 0.7.6 packages contained a source archive and should not be used as the private-source public release.
