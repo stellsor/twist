@@ -30,9 +30,3 @@ Each worker uses the real mouse and keyboard inside its Windows session and need
 ## Updates
 
 Close the older controller and workers, extract the new release, and restart every component from that version. Settings and history remain in `%LOCALAPPDATA%/twist-rdp`. Fishing starts stopped.
-
-## Distribution
-
-This repository distributes obfuscated Windows binaries, assets, documentation, and release metadata. The application source and private build files remain in the development workspace. Releases are packaged and audited before publication; the release workflow verifies the ZIP checksum, contents, and executable hashes.
-
-Third-party asset credits are in [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) and inside the ZIP.
