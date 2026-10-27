@@ -1,6 +1,8 @@
 # Changelog
 
-## 0.7.20
+[Download latest](https://github.com/stellsor/twist/releases/latest) · [Usage guide](docs/USAGE.md) · [Home](README.md)
+
+## [0.7.20](https://github.com/stellsor/twist/releases/tag/v0.7.20)
 
 - Fruit equipment now waits for backpack layout and recovers hidden tiles by clearing the available search field and reopening the backpack when needed.
 - Exact fruit/rod identity and hotbar slots are checked again after each menu change; the backpack closes before storage or fishing resumes.
@@ -8,7 +10,10 @@
 - Backpack search recovery uses Delete instead of the fruit-drop Backspace key, and releases text focus before closing.
 - Existing Store/Drop ownership and receipt verification, settings, inventories and updater behavior are preserved.
 
-## 0.7.19
+<details>
+<summary>Previous versions</summary>
+
+## [0.7.19](https://github.com/stellsor/twist/releases/tag/v0.7.19)
 
 - The launcher checks for newer stable app releases and offers Download update at the bottom.
 - Accepted updates download beside the launcher, verify their checksum, install in the same folder and reopen the launcher. Close controllers/workers using that folder first.
@@ -16,7 +21,7 @@
 - Future ZIPs omit THIRD-PARTY-NOTICES.txt and the README Distribution section.
 - Install this version manually once to enable future app-update prompts. Settings and history are preserved.
 
-## 0.7.18
+## [0.7.18](https://github.com/stellsor/twist/releases/tag/v0.7.18)
 
 - Settings save automatically as they change, including bait, fruit handling, timing, session limits, webhook and mythical ping options.
 - Webhook URLs and incomplete alert drafts are encrypted for the current Windows user.
@@ -32,3 +37,5 @@
 ## 0.7.16
 
 - Recovery for corrupted controller pairing state and atomic pairing writes.
+
+</details>

@@ -1,34 +1,60 @@
-# twist
+<h1 align="center">twist</h1>
+<p align="center">A compact fishing macro for Grand Piece Online.</p>
 
-A compact GPO fishing app with a controller, local mode, and workers for separate Windows/RDP sessions.
+<p align="center">
+  <a href="https://github.com/stellsor/twist/releases/latest"><img src="https://img.shields.io/github/v/release/stellsor/twist?style=flat-square&color=bda6ef&label=release" alt="Latest release"></a>
+  <img src="https://img.shields.io/badge/platform-Windows-202025?style=flat-square" alt="Windows">
+</p>
 
-**[Download the latest release](https://github.com/Stellsor/twist/releases/latest)** · [All releases](https://github.com/Stellsor/twist/releases) · [Usage guide](docs/USAGE.md)
+<p align="center">
+  <strong><a href="https://github.com/stellsor/twist/releases/latest">Download twist</a></strong>
+  &nbsp;·&nbsp;
+  <a href="docs/USAGE.md">Usage guide</a>
+  &nbsp;·&nbsp;
+  <a href="CHANGELOG.md">What's new</a>
+</p>
 
-Current version: **0.7.20**. If the release is still publishing, use the [audited ZIP](https://github.com/Stellsor/twist/raw/refs/heads/main/releases/twist-0.7.20-public.zip).
+---
 
-## Quick start
+## Start fishing
 
-1. Download the ZIP from Releases and extract the entire folder.
-2. Open **twist Launcher.exe** and choose **Controller**, **Worker**, or **Local**.
-3. For RDP: run Controller on your main desktop and one Worker inside each separate Windows session. Controller administrator access supports discovery across Windows users.
-4. Inside each worker, equip a fishing rod and use **Select cursor point**, then right-click the desired point in Roblox.
-5. Select an account (or Total) in the controller and press **Start fishing**.
+1. Download the latest release and **extract the entire ZIP**.
+2. Open **twist Launcher.exe** and choose **Local** for one PC, or **Controller + Workers** for RDP.
+3. Equip your rod in GPO, set a cast point over the water, and press **Start fishing**.
 
-Each worker uses the real mouse and keyboard inside its Windows session and needs Roblox in the foreground. **F7** saves a point, **F8** starts/stops, and **F9** stops fishing. Workers attach to reopened Roblox clients automatically; press Start to resume fishing.
+In a worker, use **Select cursor point**, then **right-click** the spot in Roblox. In Local mode, point at the water and press **F7**.
+
+Keep Roblox in the foreground in each fishing session. twist uses that session's mouse and keyboard.
+
+## Choose your mode
+
+| Mode | Use it for |
+| --- | --- |
+| **Local** | Fishing and viewing stats on the PC you are using. |
+| **Controller** | Managing your accounts from the main desktop. |
+| **Worker** | Running the macro inside a separate Windows/RDP session. |
+
+For multiple accounts, run one worker per RDP session and connect them to your controller. Choose **Total · all accounts** to view combined stats or start them together. [Full setup →](docs/USAGE.md#multiple-accounts-with-rdp)
 
 ## Features
 
-- Controller, compact always-on-top worker, and standalone local mode.
-- Per-account and Total statistics, fish and fruit inventories, and rarity sorting.
-- Common or best-available bait selection and Common bait restocking.
-- Devil fruit storage and optional duplicate dropping.
-- Discord stored-fruit alerts and optional mythical pings.
-- Automatic settings saving, encrypted webhook storage, and offline worker settings sync.
-- Roblox client detection, loading retries, and closed-session cleanup.
-- Version-matched offset downloads with a cached/bundled fallback.
+| Feature | What it does |
+| --- | --- |
+| **Auto fishing** | Casts, waits for a bite, and controls the fishing minigame. |
+| **Bait management** | Uses Common or the best available bait, and can restock 100 Common bait below 50. |
+| **Fruit handling** | Equips and stores new devil fruits, with optional duplicate dropping. |
+| **Catch tracker** | Tracks catches, runtime, fish per hour, and catch history. |
+| **Live inventories** | Shows fish and stored fruits with images, quantities, and rarity filters. |
+| **Discord alerts** | Reports stored fruits and fishing stats, with optional Mythical pings. |
+
+Settings save automatically. Workers detect reopened Roblox clients; press **Start** to resume fishing.
+
+## Controls
+
+**F7** — save cast point &nbsp;·&nbsp; **F8** — start / stop &nbsp;·&nbsp; **F9** — stop
 
 ## Updates
 
-From 0.7.19 onward, the launcher checks for new app releases and current offsets every time it opens. Choose **Download update** at the bottom when a newer version is available. Close controllers and workers using that folder first; the update downloads and installs in the same folder, then reopens the launcher. Settings and history stay in `%LOCALAPPDATA%/twist-rdp`.
+The launcher checks for app updates and offsets when opened. When **Download update** appears, close the controllers and workers using that folder, then accept the update. Your settings and history carry over.
 
-Install 0.7.19 manually once if you are using an older launcher.
+[Read the usage guide](docs/USAGE.md) for bait settings, fruit storage, alerts, and UI alignment.
