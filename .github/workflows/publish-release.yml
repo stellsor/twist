@@ -1,0 +1,105 @@
+name: Publish audited release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - release.json
+      - releases/**
+      - .github/workflows/publish-release.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-twist-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - name: Verify package and publish release
+        shell: pwsh
+        env:
+          RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $repo = $env:GITHUB_REPOSITORY
+          $revision = $env:GITHUB_SHA
+          $api = $env:GITHUB_API_URL
+          $headers = @{
+            Authorization = "Bearer $env:RELEASE_TOKEN"
+            Accept = 'application/vnd.github+json'
+            'X-GitHub-Api-Version' = '2026-03-10'
+          }
+          $rawHeaders = $headers.Clone()
+          $rawHeaders.Accept = 'application/vnd.github.raw+json'
+          $metadataUrl = "$api/repos/$repo/contents/release.json?ref=$revision"
+          $manifest = (Invoke-WebRequest -Uri $metadataUrl -Headers $rawHeaders).Content | ConvertFrom-Json -AsHashtable
+          $version = [string]$manifest.version
+          if ($version -notmatch '^\d+\.\d+\.\d+$') { throw 'Invalid version.' }
+          $assetName = "twist-$version-public.zip"
+          if ($manifest.asset -cne "releases/$assetName" -or $manifest.sha256 -notmatch '^[0-9a-f]{64}$') { throw 'Invalid package metadata.' }
+          $package = Join-Path $env:RUNNER_TEMP $assetName
+          $downloadUrl = "$api/repos/$repo/contents/$($manifest.asset)?ref=$revision"
+          Invoke-WebRequest -Uri $downloadUrl -Headers $rawHeaders -OutFile $package
+          if ((Get-Item -LiteralPath $package).Length -ne [long]$manifest.bytes) { throw 'Package size mismatch.' }
+          $actualHash = (Get-FileHash -LiteralPath $package -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actualHash -cne $manifest.sha256) { throw 'Package checksum mismatch.' }
+
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $zip = [System.IO.Compression.ZipFile]::OpenRead($package)
+          try {
+            $prefix = "twist-$version/"
+            $allowedFiles = @('twist Launcher.exe', 'README.md', 'THIRD-PARTY-NOTICES.txt', 'app/twist.exe', 'app/Dashboard.xaml', 'app/Worker.xaml', 'app/twist.ico', 'app/offsets.json', 'app/data/item-catalog.json')
+            $names = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::Ordinal)
+            foreach ($entry in $zip.Entries) {
+              $name = $entry.FullName
+              if (-not $name.StartsWith($prefix, [System.StringComparison]::Ordinal) -or $name.Contains('\') -or $name.Split('/').Contains('..') -or -not $names.Add($name)) { throw 'Unexpected ZIP entry.' }
+              $relative = $name.Substring($prefix.Length)
+              if ($relative -notin $allowedFiles -and -not $relative.StartsWith('app/assets/', [System.StringComparison]::Ordinal)) { throw "Unexpected public file: $relative" }
+              if ($relative -match '(?i)(\.(cs|pdb|map|cmd|bat|csproj|sln|zip)$|mapping|source)') { throw 'Private build file in ZIP.' }
+            }
+            foreach ($required in $allowedFiles) {
+              if (-not $names.Contains($prefix + $required)) { throw "Missing public file: $required" }
+            }
+            $executables = $manifest.protected_executables
+            if ($executables.Count -ne 2 -or -not $executables.ContainsKey('twist Launcher.exe') -or -not $executables.ContainsKey('app/twist.exe')) { throw 'Missing protected executable hashes.' }
+            foreach ($binary in $executables.Keys) {
+              $entry = $zip.GetEntry($prefix + $binary)
+              $stream = $entry.Open()
+              try { $hash = [Convert]::ToHexString([System.Security.Cryptography.SHA256]::HashData($stream)).ToLowerInvariant() } finally { $stream.Dispose() }
+              if ($hash -cne $executables[$binary]) { throw "Protected executable mismatch: $binary" }
+            }
+          } finally { $zip.Dispose() }
+
+          $tag = "v$version"
+          $release = $null
+          try { $release = Invoke-RestMethod -Uri "$api/repos/$repo/releases/tags/$tag" -Headers $headers } catch {
+            if ([int]$_.Exception.Response.StatusCode -ne 404) { throw }
+          }
+          if (-not $release) {
+            $body = ($manifest.notes | ForEach-Object { "- $_" }) -join "`n"
+            $body += "`n`nSHA-256: ``$actualHash``"
+            $request = @{ tag_name = $tag; target_commitish = $revision; name = "twist $version"; body = $body; draft = $true; prerelease = $false } | ConvertTo-Json
+            $release = Invoke-RestMethod -Method Post -Uri "$api/repos/$repo/releases" -Headers $headers -ContentType 'application/json' -Body $request
+          }
+          $assets = @(Invoke-RestMethod -Uri "$api/repos/$repo/releases/$($release.id)/assets" -Headers $headers)
+          $existing = @($assets | Where-Object { $_.name -ceq $assetName })
+          if ($existing.Count -gt 0) {
+            if ($existing.Count -ne 1 -or $existing[0].digest -cne "sha256:$actualHash" -or $existing[0].size -ne [long]$manifest.bytes) { throw 'Published version already has a different package. Use a new version.' }
+          } else {
+            if (-not $release.draft) { throw 'An existing published release has no matching package. Use a new version.' }
+            $upload = $release.upload_url.Split('{')[0]
+            $uploadUri = "$upload`?name=$([Uri]::EscapeDataString($assetName))"
+            $uploaded = Invoke-RestMethod -Method Post -Uri $uploadUri -Headers $headers -ContentType 'application/zip' -InFile $package
+            if ($uploaded.digest -cne "sha256:$actualHash" -or $uploaded.size -ne [long]$manifest.bytes) { throw 'Uploaded asset verification failed; release remains a draft.' }
+          }
+          if ($release.draft) {
+            $request = @{ draft = $false; make_latest = 'true' } | ConvertTo-Json
+            $release = Invoke-RestMethod -Method Patch -Uri "$api/repos/$repo/releases/$($release.id)" -Headers $headers -ContentType 'application/json' -Body $request
+          }
+          Write-Host "Published $($release.html_url)"
