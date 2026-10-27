@@ -1,17 +1,17 @@
 {
-  "version": "0.7.19",
-  "asset": "releases/twist-0.7.19-public.zip",
-  "sha256": "b6c507958dba2e9085e94369958f569a8570f70af1f893d50d3253ffff378065",
-  "bytes": 8712351,
+  "version": "0.7.20",
+  "asset": "releases/twist-0.7.20-public.zip",
+  "sha256": "dd86886c85dc368eded4794c979fbc12d7b9e6d1e69f3305e33c81cdbae5d0ca",
+  "bytes": 8712411,
   "protected_executables": {
-    "twist Launcher.exe": "b46326caa4bb1854d39afc92ac637e1cddea65b016b468af44805678e1a9b151",
-    "app/twist.exe": "3e8e690c1c982168fdd0881d0a3342fd65a6ba5b3e0cfb3e94b11a69245cfb7c"
+    "twist Launcher.exe": "695d1707dfa8f186b0e281d373b209cc094b99989fb33ddbcee3fba69dcf1f7a",
+    "app/twist.exe": "baae4710c42557fbc18c33d261496993a9e61cc43f936a710bcbc52c9eb96573"
   },
   "notes": [
-    "The launcher checks for newer stable app releases and offers Download update at the bottom.",
-    "Accepted updates download beside the launcher, verify their checksum, install in the same folder and reopen the launcher. Close controllers/workers using that folder first.",
-    "Latest offsets are checked on every launcher opening; each Roblox client uses its matching validated version with cached/bundled fallback.",
-    "Future ZIPs omit THIRD-PARTY-NOTICES.txt and the README Distribution section.",
-    "Install this version manually once to enable future app-update prompts. Settings and history are preserved."
+    "Fruit equipment now waits for backpack layout and recovers hidden tiles by clearing the available search field and reopening the backpack when needed.",
+    "Exact fruit/rod identity and hotbar slots are checked again after each menu change; the backpack closes before storage or fishing resumes.",
+    "Old hover targets are cleared during equipment and scrolling so they cannot pull the cursor away from the current control.",
+    "Backpack search recovery uses Delete instead of the fruit-drop Backspace key, and releases text focus before closing.",
+    "Existing Store/Drop ownership and receipt verification, settings, inventories and updater behavior are preserved."
   ]
 }

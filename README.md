@@ -4,7 +4,7 @@ A compact GPO fishing app with a controller, local mode, and workers for separat
 
 **[Download the latest release](https://github.com/Stellsor/twist/releases/latest)** · [All releases](https://github.com/Stellsor/twist/releases) · [Usage guide](docs/USAGE.md)
 
-Current version: **0.7.19**. If the release is still publishing, use the [audited ZIP](https://github.com/Stellsor/twist/raw/refs/heads/main/releases/twist-0.7.19-public.zip).
+Current version: **0.7.20**. If the release is still publishing, use the [audited ZIP](https://github.com/Stellsor/twist/raw/refs/heads/main/releases/twist-0.7.20-public.zip).
 
 ## Quick start
 

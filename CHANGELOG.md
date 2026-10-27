@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.20
+
+- Fruit equipment now waits for backpack layout and recovers hidden tiles by clearing the available search field and reopening the backpack when needed.
+- Exact fruit/rod identity and hotbar slots are checked again after each menu change; the backpack closes before storage or fishing resumes.
+- Old hover targets are cleared during equipment and scrolling so they cannot pull the cursor away from the current control.
+- Backpack search recovery uses Delete instead of the fruit-drop Backspace key, and releases text focus before closing.
+- Existing Store/Drop ownership and receipt verification, settings, inventories and updater behavior are preserved.
+
 ## 0.7.19
 
 - The launcher checks for newer stable app releases and offers Download update at the bottom.
