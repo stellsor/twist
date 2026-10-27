@@ -38,7 +38,9 @@ jobs:
           $rawHeaders = $headers.Clone()
           $rawHeaders.Accept = 'application/vnd.github.raw+json'
           $metadataUrl = "$api/repos/$repo/contents/release.json?ref=$revision"
-          $manifest = (Invoke-WebRequest -Uri $metadataUrl -Headers $rawHeaders).Content | ConvertFrom-Json -AsHashtable
+          $response = Invoke-WebRequest -Uri $metadataUrl -Headers $rawHeaders
+          $metadata = if ($response.Content -is [byte[]]) { [System.Text.Encoding]::UTF8.GetString($response.Content) } else { [string]$response.Content }
+          $manifest = $metadata | ConvertFrom-Json -AsHashtable
           $version = [string]$manifest.version
           if ($version -notmatch '^\d+\.\d+\.\d+$') { throw 'Invalid version.' }
           $assetName = "twist-$version-public.zip"
