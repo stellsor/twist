@@ -11,6 +11,8 @@
   &nbsp;·&nbsp;
   <a href="docs/USAGE.md">Usage guide</a>
   &nbsp;·&nbsp;
+  <a href="docs/examples/README.md">Screenshots</a>
+  &nbsp;·&nbsp;
   <a href="CHANGELOG.md">What's new</a>
 </p>
 
@@ -48,6 +50,14 @@ For multiple accounts, run one worker per RDP session and connect them to your c
 | **Discord alerts** | Reports stored fruits and fishing stats, with optional Mythical pings. |
 
 Settings save automatically. Workers detect reopened Roblox clients; press **Start** to resume fishing.
+
+## Screenshots
+
+Actual UI with demo accounts and statistics.
+
+![twist live tracking example](docs/examples/0.7.20/02-live-tracking.png)
+
+[View all 9 screenshots →](docs/examples/README.md)
 
 ## Controls
 
