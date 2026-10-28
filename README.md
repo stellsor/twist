@@ -43,7 +43,7 @@ For multiple accounts, run one worker per RDP session and connect them to your c
 | Feature | What it does |
 | --- | --- |
 | **Auto fishing** | Casts, waits for a bite, and controls the fishing minigame. |
-| **Bait management** | Uses Common or the best available bait, and can restock 100 Common bait below 50. |
+| **Bait management** | Uses Common or the best available bait, with a custom restock threshold and purchase amount. |
 | **Fruit handling** | Equips and stores new devil fruits, with optional duplicate dropping. |
 | **Catch tracker** | Tracks catches, runtime, fish per hour, and catch history. |
 | **Live inventories** | Shows fish and stored fruits with images, quantities, and rarity filters. |

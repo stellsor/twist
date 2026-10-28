@@ -2,6 +2,13 @@
 
 [Download latest](https://github.com/stellsor/twist/releases/latest) · [Usage guide](docs/USAGE.md) · [Home](README.md)
 
+## [0.7.23](https://github.com/stellsor/twist/releases/tag/v0.7.23)
+
+- Added per-account Buy when below and Amount to buy settings for Common bait, with automatic saving and worker sync. Defaults remain 50 and 100; the requested quantity is checked before purchase and against the inventory receipt.
+- Fixed UI text reading for the current Roblox build so Store Fruit, hotbar slot numbers and bait purchase controls are recognized again.
+- TextLabel, TextButton and TextBox layouts are handled separately, with the older supported build retaining its own layout.
+- Live read-only checks confirmed fruit storage readiness and receipt, hotbar slots, vendor distance, Common bait confirmation, quantity 100 and Legendary bait selection. All game UI actions during verification were performed by the user.
+
 ## [0.7.22](https://github.com/stellsor/twist/releases/tag/v0.7.22)
 
 - Bait, purchase, backpack and Store Fruit controls now use verified absolute cursor movement within the worker desktop, with relative movement as a fallback.

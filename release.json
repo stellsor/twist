@@ -1,16 +1,16 @@
 {
-  "version": "0.7.22",
-  "asset": "releases/twist-0.7.22-public.zip",
-  "sha256": "661bb7051d9396d4559fac8d01ca2e569e2805be4dc43087b7d9b849df143439",
-  "bytes": 8723741,
+  "version": "0.7.23",
+  "asset": "releases/twist-0.7.23-public.zip",
+  "sha256": "4c9d4b3407a66f9d1ee288361728152757b803c1f76a37fa21583450f7434e98",
+  "bytes": 8728053,
   "protected_executables": {
-    "twist Launcher.exe": "04b7231fbf1007dd2907274b465127f4b4d4899300df828906556ea2af4f30b3",
-    "app/twist.exe": "9ed61b31f17c1c76e24ff71f92e2500371a0b750a9254bc694ce60943287a897"
+    "twist Launcher.exe": "cdd60b0989441a2d7d65d35fed00bccb3b4a06ae42ec875dbb14d971df6788f0",
+    "app/twist.exe": "8ca559bf2cea5a8333d524b06c1b28bd91cf542a8ef9acd6144b1b78ae21f220"
   },
   "notes": [
-    "Bait, purchase, backpack and Store Fruit controls now use verified absolute cursor movement within the worker desktop, with relative movement as a fallback.",
-    "UI movement emits fresh hover events and verifies the cursor before clicking; casting keeps its existing movement behavior.",
-    "Repeated input or UI-readiness failures now remain visible in the controller instead of being hidden behind a Storing fruit or Selecting bait message.",
-    "UI status shows movement and click stages, and target validation preserves the specific reason when a click is blocked."
+    "Fixed UI text reading for the current Roblox build so Store Fruit, hotbar slot numbers and bait purchase controls are recognized again.",
+    "TextLabel, TextButton and TextBox layouts are handled separately, with the older supported build retaining its own layout.",
+    "Live read-only checks confirmed fruit storage readiness and receipt, hotbar slots, vendor distance, Common bait confirmation, quantity 100 and Legendary bait selection. All game UI actions during verification were performed by the user.",
+    "Added per-account Buy when below and Amount to buy settings for Common bait, with automatic saving and worker sync. Defaults remain 50 and 100; the requested quantity is checked before purchase and against the inventory receipt."
   ]
 }

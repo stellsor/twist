@@ -41,7 +41,7 @@ Fish and fruit inventories sort from highest rarity to lowest. Select **Total** 
 
 - **Common bait:** uses Common bait.
 - **Best available:** uses Legendary first, then Rare, then Common as stock runs out.
-- **Auto-buy bait:** buys 100 Common bait when Common stock falls below 50. Stand within **12 studs** of the Common Fish Bait vendor and have enough Peli.
+- **Auto-buy bait:** set **Buy when below** and **Amount to buy** for Common bait. For example, below 80 → buy 250 more. Defaults are 50 and 100. Stand within **12 studs** of the Common Fish Bait vendor and have enough Peli.
 - **Automatically equip and store devil fruits:** checks the hotbar and backpack between casts, stores new fruits, then equips the rod again.
 - **Drop already-owned fruits:** drops a carried duplicate with Backspace if that fruit is already stored. Turn this off to keep duplicates.
 - **Session limits:** stops after the chosen rounds or minutes, finishing the current round first. **0** means unlimited.
