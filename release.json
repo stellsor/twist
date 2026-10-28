@@ -1,15 +1,14 @@
 {
-  "version": "0.7.24",
-  "asset": "releases/twist-0.7.24-public.zip",
-  "sha256": "2c4ba19767ba3dce32ee07899f9a9428d2c18edec4b29ab5f727c5a39c29b19d",
-  "bytes": 8729047,
+  "version": "0.7.25",
+  "asset": "releases/twist-0.7.25-public.zip",
+  "sha256": "fc8b4af1165035c0d72487333ca87f19482897dfcde0184f9b1a23cb65266685",
+  "bytes": 8730530,
   "protected_executables": {
-    "twist Launcher.exe": "f4ecf019040d7fbdb15325f62c68a68eef18834f5dfdb101465363472b7fe658",
-    "app/twist.exe": "72b569cb9481b4a5a76af9f913af551009c516e96b943928270a146db4740da1"
+    "twist Launcher.exe": "845fd15b695c0f22c2baac33f746a8cdf915918d0b26d620de47feeff5a6929f",
+    "app/twist.exe": "ec9ae24950e449db0d5ffdfe601244a711f2db329e2a13dc62b25545b6aa1b10"
   },
   "notes": [
-    "Added a gold Legendary owned counter to Session statistics for individual accounts and Total.",
-    "The Fish inventory also shows its Legendary fish quantity. Total combines unique accounts; fruits and bait are excluded, and the count follows current inventory rather than catch history.",
-    "Includes the current Roblox UI text-layout fix and configurable Common bait restocking from 0.7.23."
+    "The launcher removes its verified update ZIP after successful extraction and preparation, with cleanup retries for locked downloads after installation. Failed or cancelled extraction keeps the download.",
+    "Inventory totals use larger text, a clearer Legendary count and more space above the rarity filter."
   ]
 }

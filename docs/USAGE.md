@@ -66,4 +66,4 @@ Storage messages include the fruit name, fish caught, fishing time, and remainin
 
 If bait or purchase clicks land in the wrong place, open the worker's **UI alignment**, click **Align bait / purchase UI**, then right-click the center of the highest bait row.
 
-Reopen the launcher to check for updates. Choose **Download update** at the bottom when offered; close controllers and workers using that folder first. Offsets are checked automatically whenever the launcher opens.
+Reopen the launcher to check for updates. Choose **Download update** at the bottom when offered; close controllers and workers using that folder first. The downloaded update ZIP is removed after successful verification and extraction. Failed or cancelled extraction keeps it for recovery. Offsets are checked automatically whenever the launcher opens.

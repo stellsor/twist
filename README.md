@@ -65,6 +65,6 @@ Actual UI with demo accounts and statistics.
 
 ## Updates
 
-The launcher checks for app updates and offsets when opened. When **Download update** appears, close the controllers and workers using that folder, then accept the update. Your settings and history carry over.
+The launcher checks for app updates and offsets when opened. When **Download update** appears, close the controllers and workers using that folder, then accept the update. Your settings and history carry over. The downloaded update ZIP is removed after successful verification and extraction.
 
 [Read the usage guide](docs/USAGE.md) for bait settings, fruit storage, alerts, and UI alignment.

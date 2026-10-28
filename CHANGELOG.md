@@ -2,6 +2,11 @@
 
 [Download latest](https://github.com/stellsor/twist/releases/latest) · [Usage guide](docs/USAGE.md) · [Home](README.md)
 
+## [0.7.25](https://github.com/stellsor/twist/releases/tag/v0.7.25)
+
+- The launcher removes its verified update ZIP after successful extraction and preparation, with cleanup retries for locked downloads after installation. Failed or cancelled extraction keeps the download.
+- Inventory totals use larger text, a clearer Legendary count and more space above the rarity filter.
+
 ## [0.7.24](https://github.com/stellsor/twist/releases/tag/v0.7.24)
 
 - Added a gold Legendary owned counter to Session statistics for individual accounts and Total.
