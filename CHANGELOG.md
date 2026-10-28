@@ -2,6 +2,13 @@
 
 [Download latest](https://github.com/stellsor/twist/releases/latest) · [Usage guide](docs/USAGE.md) · [Home](README.md)
 
+## [0.7.22](https://github.com/stellsor/twist/releases/tag/v0.7.22)
+
+- Bait, purchase, backpack and Store Fruit controls now use verified absolute cursor movement within the worker desktop, with relative movement as a fallback.
+- UI movement emits fresh hover events and verifies the cursor before clicking; casting keeps its existing movement behavior.
+- Repeated input or UI-readiness failures now remain visible in the controller instead of being hidden behind a Storing fruit or Selecting bait message.
+- UI status shows movement and click stages, and target validation preserves the specific reason when a click is blocked.
+
 ## [0.7.21](https://github.com/stellsor/twist/releases/tag/v0.7.21)
 
 - Restocking now finds enabled Common Fish Bait vendors by their live world position within 12 studs of the player, instead of depending on the on-screen E prompt.

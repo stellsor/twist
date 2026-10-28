@@ -1,15 +1,16 @@
 {
-  "version": "0.7.21",
-  "asset": "releases/twist-0.7.21-public.zip",
-  "sha256": "3dce23876f875b8bfb80415fdc7712041f3cd9b098e73f895b0747b57d651912",
-  "bytes": 8720583,
+  "version": "0.7.22",
+  "asset": "releases/twist-0.7.22-public.zip",
+  "sha256": "661bb7051d9396d4559fac8d01ca2e569e2805be4dc43087b7d9b849df143439",
+  "bytes": 8723741,
   "protected_executables": {
-    "twist Launcher.exe": "44fb32a9e8b64593b3b2fcd424cfb656b987efaf5de658f5100a615fec240877",
-    "app/twist.exe": "19cb7cc974127843b97bfd8196c719512bb5df6856d228612032cb1f14b49f49"
+    "twist Launcher.exe": "04b7231fbf1007dd2907274b465127f4b4d4899300df828906556ea2af4f30b3",
+    "app/twist.exe": "9ed61b31f17c1c76e24ff71f92e2500371a0b750a9254bc694ce60943287a897"
   },
   "notes": [
-    "Restocking now finds enabled Common Fish Bait vendors by their live world position within 12 studs of the player, instead of depending on the on-screen E prompt.",
-    "Store Fruit now resolves the current visible button across duplicate menus and nested layouts, waits after equipping, and reports the specific reason when storage is blocked.",
-    "Existing quantity-100 verification, purchase receipts, fruit ownership checks, and Stop controls remain active."
+    "Bait, purchase, backpack and Store Fruit controls now use verified absolute cursor movement within the worker desktop, with relative movement as a fallback.",
+    "UI movement emits fresh hover events and verifies the cursor before clicking; casting keeps its existing movement behavior.",
+    "Repeated input or UI-readiness failures now remain visible in the controller instead of being hidden behind a Storing fruit or Selecting bait message.",
+    "UI status shows movement and click stages, and target validation preserves the specific reason when a click is blocked."
   ]
 }
