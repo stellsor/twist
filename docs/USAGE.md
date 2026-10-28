@@ -27,9 +27,9 @@ Use one actively fishing Roblox client per Windows session. **Stop all** stops t
 
 | Tab | What it does |
 | --- | --- |
-| **Session** | Shows fishing status, fish caught, runtime, and fish per hour. **Total** combines the accounts' statistics. |
+| **Session** | Shows fishing status, fish caught, runtime, fish per hour, and **Legendary owned** from current fish inventory. **Total** combines the accounts' statistics. |
 | **Tracker** | Shows catch history and round performance. Use **Export catches** to save catch data. |
-| **Fish** | Shows fish inventory, quantities, images, search, and rarity filters. |
+| **Fish** | Shows fish inventory, quantities, images, search, rarity filters, and the current Legendary fish total. |
 | **Fruits** | Shows stored devil fruits with quantities, images, search, and rarity filters. |
 | **Settings** | Controls bait, restocking, fruit handling, session limits, and timing for the selected account. |
 | **Alerts** | Sets up Discord notifications for successfully stored fruits. |

@@ -1,16 +1,15 @@
 {
-  "version": "0.7.23",
-  "asset": "releases/twist-0.7.23-public.zip",
-  "sha256": "4c9d4b3407a66f9d1ee288361728152757b803c1f76a37fa21583450f7434e98",
-  "bytes": 8728053,
+  "version": "0.7.24",
+  "asset": "releases/twist-0.7.24-public.zip",
+  "sha256": "2c4ba19767ba3dce32ee07899f9a9428d2c18edec4b29ab5f727c5a39c29b19d",
+  "bytes": 8729047,
   "protected_executables": {
-    "twist Launcher.exe": "cdd60b0989441a2d7d65d35fed00bccb3b4a06ae42ec875dbb14d971df6788f0",
-    "app/twist.exe": "8ca559bf2cea5a8333d524b06c1b28bd91cf542a8ef9acd6144b1b78ae21f220"
+    "twist Launcher.exe": "f4ecf019040d7fbdb15325f62c68a68eef18834f5dfdb101465363472b7fe658",
+    "app/twist.exe": "72b569cb9481b4a5a76af9f913af551009c516e96b943928270a146db4740da1"
   },
   "notes": [
-    "Fixed UI text reading for the current Roblox build so Store Fruit, hotbar slot numbers and bait purchase controls are recognized again.",
-    "TextLabel, TextButton and TextBox layouts are handled separately, with the older supported build retaining its own layout.",
-    "Live read-only checks confirmed fruit storage readiness and receipt, hotbar slots, vendor distance, Common bait confirmation, quantity 100 and Legendary bait selection. All game UI actions during verification were performed by the user.",
-    "Added per-account Buy when below and Amount to buy settings for Common bait, with automatic saving and worker sync. Defaults remain 50 and 100; the requested quantity is checked before purchase and against the inventory receipt."
+    "Added a gold Legendary owned counter to Session statistics for individual accounts and Total.",
+    "The Fish inventory also shows its Legendary fish quantity. Total combines unique accounts; fruits and bait are excluded, and the count follows current inventory rather than catch history.",
+    "Includes the current Roblox UI text-layout fix and configurable Common bait restocking from 0.7.23."
   ]
 }

@@ -46,7 +46,7 @@ For multiple accounts, run one worker per RDP session and connect them to your c
 | **Bait management** | Uses Common or the best available bait, with a custom restock threshold and purchase amount. |
 | **Fruit handling** | Equips and stores new devil fruits, with optional duplicate dropping. |
 | **Catch tracker** | Tracks catches, runtime, fish per hour, and catch history. |
-| **Live inventories** | Shows fish and stored fruits with images, quantities, and rarity filters. |
+| **Live inventories** | Shows fish and stored fruits with images, quantities, rarity filters, and a Legendary fish owned total. |
 | **Discord alerts** | Reports stored fruits and fishing stats, with optional Mythical pings. |
 
 Settings save automatically. Workers detect reopened Roblox clients; press **Start** to resume fishing.

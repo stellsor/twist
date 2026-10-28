@@ -2,6 +2,12 @@
 
 [Download latest](https://github.com/stellsor/twist/releases/latest) · [Usage guide](docs/USAGE.md) · [Home](README.md)
 
+## [0.7.24](https://github.com/stellsor/twist/releases/tag/v0.7.24)
+
+- Added a gold Legendary owned counter to Session statistics for individual accounts and Total.
+- The Fish inventory also shows its Legendary fish quantity. Total combines unique accounts; fruits and bait are excluded, and the count follows current inventory rather than catch history.
+- Includes the current Roblox UI text-layout fix and configurable Common bait restocking from 0.7.23.
+
 ## [0.7.23](https://github.com/stellsor/twist/releases/tag/v0.7.23)
 
 - Added per-account Buy when below and Amount to buy settings for Common bait, with automatic saving and worker sync. Defaults remain 50 and 100; the requested quantity is checked before purchase and against the inventory receipt.
