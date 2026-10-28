@@ -1,17 +1,15 @@
 {
-  "version": "0.7.20",
-  "asset": "releases/twist-0.7.20-public.zip",
-  "sha256": "dd86886c85dc368eded4794c979fbc12d7b9e6d1e69f3305e33c81cdbae5d0ca",
-  "bytes": 8712411,
+  "version": "0.7.21",
+  "asset": "releases/twist-0.7.21-public.zip",
+  "sha256": "3dce23876f875b8bfb80415fdc7712041f3cd9b098e73f895b0747b57d651912",
+  "bytes": 8720583,
   "protected_executables": {
-    "twist Launcher.exe": "695d1707dfa8f186b0e281d373b209cc094b99989fb33ddbcee3fba69dcf1f7a",
-    "app/twist.exe": "baae4710c42557fbc18c33d261496993a9e61cc43f936a710bcbc52c9eb96573"
+    "twist Launcher.exe": "44fb32a9e8b64593b3b2fcd424cfb656b987efaf5de658f5100a615fec240877",
+    "app/twist.exe": "19cb7cc974127843b97bfd8196c719512bb5df6856d228612032cb1f14b49f49"
   },
   "notes": [
-    "Fruit equipment now waits for backpack layout and recovers hidden tiles by clearing the available search field and reopening the backpack when needed.",
-    "Exact fruit/rod identity and hotbar slots are checked again after each menu change; the backpack closes before storage or fishing resumes.",
-    "Old hover targets are cleared during equipment and scrolling so they cannot pull the cursor away from the current control.",
-    "Backpack search recovery uses Delete instead of the fruit-drop Backspace key, and releases text focus before closing.",
-    "Existing Store/Drop ownership and receipt verification, settings, inventories and updater behavior are preserved."
+    "Restocking now finds enabled Common Fish Bait vendors by their live world position within 12 studs of the player, instead of depending on the on-screen E prompt.",
+    "Store Fruit now resolves the current visible button across duplicate menus and nested layouts, waits after equipping, and reports the specific reason when storage is blocked.",
+    "Existing quantity-100 verification, purchase receipts, fruit ownership checks, and Stop controls remain active."
   ]
 }

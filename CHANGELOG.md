@@ -2,6 +2,12 @@
 
 [Download latest](https://github.com/stellsor/twist/releases/latest) · [Usage guide](docs/USAGE.md) · [Home](README.md)
 
+## [0.7.21](https://github.com/stellsor/twist/releases/tag/v0.7.21)
+
+- Restocking now finds enabled Common Fish Bait vendors by their live world position within 12 studs of the player, instead of depending on the on-screen E prompt.
+- Store Fruit now resolves the current visible button across duplicate menus and nested layouts, waits after equipping, and reports the specific reason when storage is blocked.
+- Existing quantity-100 verification, purchase receipts, fruit ownership checks, and Stop controls remain active.
+
 ## [0.7.20](https://github.com/stellsor/twist/releases/tag/v0.7.20)
 
 - Fruit equipment now waits for backpack layout and recovers hidden tiles by clearing the available search field and reopening the backpack when needed.
