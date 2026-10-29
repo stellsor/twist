@@ -8,6 +8,7 @@ Choose the setup you need:
 - [Multiple accounts with RDP](#multiple-accounts-with-rdp)
 - [Bait and restocking](#bait-and-restocking)
 - [Fruit storage](#fruit-storage)
+- [World coordinates and spawn history](#world-coordinates-and-spawn-history)
 - [Discord alerts](#discord-alerts)
 - [Common problems](#common-problems)
 
@@ -17,8 +18,8 @@ Choose the setup you need:
 2. Extract the whole ZIP into a folder, then open **twist Launcher.exe** from that folder.
 3. Choose **Local**. Open GPO and wait for your account to appear in twist's account selector.
 4. In GPO, equip your fishing rod and face the water.
-5. In twist, open **Settings** and choose **Common bait** or **Best available**. If auto-buy is enabled, stand near the Common Fish Bait vendor. See [bait setup](#bait-and-restocking).
-6. Point your mouse at the spot in the water where you want to cast, then press **F7**. Your saved point appears in **Settings → Cast point**.
+5. In twist, open **Settings → General** and choose **Common bait** or **Best available**. If auto-buy is enabled, stand near the Common Fish Bait vendor. See [bait setup](#bait-and-restocking).
+6. Point your mouse at the spot in the water where you want to cast, then press **F7**. Your saved point appears in **Settings → General → Cast point**.
 7. Press **F8** or click **Start fishing**. Leave Roblox in the foreground.
 
 You should see the status move through casting, waiting for a bite and reeling. The live tracker appears during the fishing minigame.
@@ -33,7 +34,7 @@ These steps assume your RDP sessions are already set up and can run Roblox. Use 
 
 1. Extract the twist ZIP into a folder accessible from your sessions, or copy the extracted folder into each session.
 2. Open **twist Launcher.exe** on your main desktop and choose **Controller**. Administrator access helps it discover workers running under other Windows users.
-3. Open **Connections** and leave the controller running.
+3. Open **Settings → Connections** and leave the controller running.
 
 ### 2. Start a worker in each RDP session
 
@@ -48,7 +49,7 @@ Repeat this for each RDP session. [See the compact worker](examples/0.7.20/09-co
 ### 3. Start fishing from the controller
 
 1. Return to your main desktop.
-2. Select an account in the controller and set its bait and fruit options in **Settings**.
+2. Select an account in the controller and set its bait and fruit options in **Settings → General**.
 3. Click **Start fishing** for that account, or choose **Total · all accounts** and click **Start all fishing**.
 4. Check that each worker's Roblox client stays in the foreground inside its own session.
 
@@ -56,7 +57,7 @@ Repeat this for each RDP session. [See the compact worker](examples/0.7.20/09-co
 
 ### If automatic connection does not work
 
-1. In the controller, open **Connections → Manual pairing** and copy the complete pairing code.
+1. In the controller, open **Settings → Connections → Manual pairing** and copy the complete pairing code.
 2. In the worker, expand **Manual pairing**, paste the code and click **Connect**.
 3. Check the controller's account selector again.
 
@@ -64,7 +65,7 @@ When Roblox closes, its old entry is removed. The worker detects a newly opened 
 
 ## Bait and restocking
 
-Select the account you want to change, then open **Settings**.
+Select the account you want to change, then open **Settings → General**.
 
 | Option | What happens |
 | --- | --- |
@@ -86,13 +87,31 @@ If you are fishing away from the vendor, turn off auto-buy and bring enough bait
 
 ## Fruit storage
 
-In **Settings**, enable **Automatically equip and store devil fruits**.
+In **Settings → General**, enable **Automatically equip and store devil fruits**.
 
 Between casts, twist checks the hotbar and backpack, equips a carried fruit, clicks **Store Fruit**, then restores the rod.
 
 **Drop already-owned fruits with Backspace** controls duplicates. Enable it to drop fruits you already have stored, or turn it off to keep them.
 
-Use the **Fruits** tab to view stored fruit quantities and rarities.
+Use **Inventory → Fruits** to view stored fruit quantities and rarities.
+
+## World coordinates and spawn history
+
+Open **World** in the controller or Local mode. Select an account to see its **X / Y / Z** position, or choose **Total · all accounts** to view the connected workers. Coordinates are whole studs, rounded down like Minecraft coordinates.
+
+An equipped All Seeing Eye variant supplies the next-fruit description. twist reads the carried Eye’s live description, including variants such as Shamrock, Holly and Egg. The account must receive the game’s spawn announcement and Eye pulse while twist is running. Fishing does not need to be started for World monitoring.
+
+When a fruit spawns, twist saves the exact announcement and the pulse target’s coordinates. For example:
+
+```text
+A SUKE has spawned at FISHING HUB
+Suke spawned
+Coords: -301, 24, -1940
+```
+
+The marker remains after the short pulse disappears. Distance and **ΔX / ΔY / ΔZ** show how far the target is from that account’s character; positive values mean move toward increasing coordinates. A saved pulse target does not confirm the fruit is still on the ground. If a pulse target is missing or ambiguous, the alert reports unavailable coordinates.
+
+Expand **World → Spawn history** to review announcements captured while you were AFK. History saves independently of Discord, remains after restarting twist, and merges duplicate sightings from workers in the same server. It retains the latest 5,000 spawns and displays the newest 100 for the selected account or Total. Live markers expire after an hour; saved history remains.
 
 ## Discord alerts
 
@@ -100,6 +119,8 @@ Use the **Fruits** tab to view stored fruit quantities and rarities.
 2. Paste your Discord webhook URL and enable stored-fruit notifications.
 3. Click **Send test** and check the Discord channel for the message.
 4. For Mythical pings, enable **Ping only when a Mythical fruit is stored**, then choose **User**, **Role** or **Everyone**. For a notification ping, use the numeric **Discord User ID** or **Discord Role ID**, rather than a username. Enable **Developer Mode** in Discord under Settings → Advanced, then right-click the profile or role and choose **Copy User ID** / **Copy Role ID**. A pasted mention also works. If you enter a username or other text, twist still sends the fruit alert and includes that text on Mythical alerts, but Discord will not ping it.
+
+Enable **Notify when a world fruit spawns** for separate spawn alerts. They quote the exact announcement, followed by the fruit name and pulse coordinates. Configure this on the controller for all RDP workers. Spawn alerts do not add Mythical pings; the ping option applies to stored-fruit notifications.
 
 A successful storage message includes the fruit name, fish caught, fishing time and remaining bait. Test messages do not ping. In an RDP setup, configure alerts on the controller.
 
@@ -109,30 +130,30 @@ A successful storage message includes the fruit name, fish caught, fishing time 
 | --- | --- |
 | **Session** | Current status, runtime, fish caught, fish per hour, fish owned and Legendary fish owned. |
 | **Tracker** | Catch history, round performance and CSV exports. |
-| **Fish** | Fish inventory with quantities, images, search and rarity filters. |
-| **Fruits** | Stored fruits with quantities, images, search and rarity filters. |
-| **Settings** | Options for the selected account. Changes save automatically. |
+| **Inventory** | Fish and Fruits subtabs, with quantities, images, search and rarity filters. |
+| **World** | Worker coordinates, Eye countdowns, pulse targets and saved spawn history. |
+| **Settings** | General options for the selected account, plus the Connections subtab. Changes save automatically. |
 | **Alerts** | Discord notifications and Mythical pings. |
-| **Connections** | Workers, discovery and manual pairing. |
 
 Select **Total · all accounts** to combine inventories and statistics. To edit an account's settings, select that account instead.
 
 **Fish caught** counts completed successful minigames, even when that fish's inventory stack is full. **Fish owned** and **Legendary owned** show what is currently in inventory.
 
-Session limits are in **Settings**. Set the round or time limit to **0** for an unlimited run. Limits finish the current round before stopping.
+Session limits are in **Settings → General**. Set the round or time limit to **0** for an unlimited run. Limits finish the current round before stopping.
 
 ## Common problems
 
 | Problem | What to check |
 | --- | --- |
 | Account is missing | Join GPO and wait for it to load. For RDP, make sure the worker is running in the same Windows session as Roblox. |
-| Worker is not connected | Try **Connections → Scan now**, then use manual pairing if needed. |
+| Worker is not connected | Try **Settings → Connections → Scan now**, then use manual pairing if needed. |
 | Cast lands in the wrong place | Stop fishing, face the water and save the point again. Use **F7** in Local mode, or the worker's **Select cursor point** followed by a right-click. |
 | Waiting for bait or the vendor | Check your selected bait and stock. Move within 12 studs of the Common Fish Bait vendor, or turn off auto-buy if you are fishing elsewhere. |
 | Bait or purchase clicks miss | Move the worker panel away from the game buttons. Open **UI alignment → Align bait / purchase UI**, then right-click the center of the highest bait row. |
 | Fishing stops when switching apps | Roblox needs the foreground in its fishing session. Use separate RDP sessions to fish while using your main desktop. |
 | A reopened Roblox client is idle | Wait for the worker to detect it, select the new entry and press **Start fishing** again. |
 | Settings seem unchanged | They save automatically, but fishing settings take effect after stopping and starting the account. |
+| Spawn alert has no coordinates | The worker needs an All Seeing Eye and must receive the temporary pulse. The announcement is still shown if its target cannot be resolved. |
 | Discord test does not arrive | Check the webhook URL and the status shown in **Alerts** after pressing **Send test**. |
 
 ## Updating
@@ -144,6 +165,6 @@ Session limits are in **Settings**. Set the round or time limit to **0** for an 
 
 Your settings and history carry over. The launcher also checks offsets whenever it opens. It removes the update ZIP after checking and unpacking it; a failed or cancelled extraction keeps the ZIP.
 
-Under **Settings → Display**, **Use hardware acceleration when available** lets Windows use the available GPU renderer. The setting saves immediately. If graphics behave poorly, switch it off to use software rendering. Windows or RDP may select software rendering even with the option enabled; the status beneath it shows the session’s reported capability.
+Under **Settings → General → Display**, **Use hardware acceleration when available** lets Windows use the available GPU renderer. The setting saves immediately. If graphics behave poorly, switch it off to use software rendering. Windows or RDP may select software rendering even with the option enabled; the status beneath it shows the session’s reported capability.
 
-While twist is minimized, live visual animation and sampling pause and the dashboard refreshes once per second. Fishing, connections and alerts continue. Restoring the window refreshes its data and resumes the display.
+While twist is minimized, live UI animation and chart sampling pause and the dashboard refreshes once per second. Fishing, connections and alerts continue. Restoring the window refreshes its data and resumes the display.

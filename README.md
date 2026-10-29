@@ -48,6 +48,7 @@ For multiple accounts, run one worker per RDP session and connect them to your c
 | **Auto fishing** | Casts, waits for a bite, and controls the fishing minigame. |
 | **Bait management** | Uses Common or the best available bait, with a custom restock threshold and purchase amount. |
 | **Fruit handling** | Equips and stores new devil fruits, with optional duplicate dropping. |
+| **World** | Worker coordinates, All Seeing Eye countdowns, spawn alerts and saved AFK history. |
 | **Catch tracker** | Tracks catches, runtime, fish per hour, and catch history. |
 | **Live inventories** | Shows fish and stored fruits with images, quantities, rarity filters, and a Legendary fish owned total. |
 | **Discord alerts** | Reports stored fruits and fishing stats, with optional Mythical pings. |

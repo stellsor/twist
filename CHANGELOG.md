@@ -2,6 +2,13 @@
 
 [Download](https://github.com/stellsor/twist/releases/latest) · [Setup](docs/USAGE.md)
 
+## [0.7.28](https://github.com/Stellsor/twist/releases/tag/v0.7.28)
+
+- Added World coordinates, All Seeing Eye timers and alerts that quote the in-game announcement with its pulse target.
+- Saved spawn history in World so you can review what appeared while you were AFK.
+- Grouped Fish and Fruits into Inventory subtabs.
+- Moved Connections into Settings alongside the General subtab.
+
 ## [0.7.27](https://github.com/Stellsor/twist/releases/tag/v0.7.27)
 
 - Fixed round-transition freezes by moving history saves off the UI thread and reducing repeated catch matching.

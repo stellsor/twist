@@ -1,16 +1,16 @@
 {
-  "version": "0.7.27",
-  "asset": "releases/twist-0.7.27-public.zip",
-  "sha256": "e68b4081f74dc2598061fb2f9cdaf023b37215c78010c5555225b96d9c3b8104",
-  "bytes": 8743854,
+  "version": "0.7.28",
+  "asset": "releases/twist-0.7.28-public.zip",
+  "sha256": "86e68ba7c46355cc37016d5fa747e371e814c8a4618b881bc1940cf810bee7c3",
+  "bytes": 8769619,
   "protected_executables": {
-    "twist Launcher.exe": "650900d72c469e3ada265e7d88608660d1c51a7685c42856019647db07034703",
-    "app/twist.exe": "31b1b99cdb514f2eef83bde93c5bc3f6a42c618c0f9595ff651af82e34e7bf03"
+    "twist Launcher.exe": "98c2659c83c99bd9f280f0568f6b7213bb30c4aae9fd74952c66956ee7fcc924",
+    "app/twist.exe": "4a153fdee03f2a108c82047032ab28c6296b02311511f5f21ead99b54b192fb9"
   },
   "notes": [
-    "Fixed round-transition freezes by moving history saves off the UI thread and reducing repeated catch matching.",
-    "Smoothed the current-round display and made inventory previews update without rebuilding the whole list.",
-    "Added a saved hardware acceleration option in Settings. Visual animation pauses while minimized.",
-    "Fixed controller fruit alerts being blocked by ping settings. Usernames are sent as text; numeric Discord IDs create pings."
+    "Added World coordinates, All Seeing Eye timers and alerts that quote the in-game announcement with its pulse target.",
+    "Saved spawn history in World so you can review what appeared while you were AFK.",
+    "Grouped Fish and Fruits into Inventory subtabs.",
+    "Moved Connections into Settings alongside the General subtab."
   ]
 }
