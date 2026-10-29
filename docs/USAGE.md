@@ -1,75 +1,147 @@
 # How to use twist
 
-## Getting started
+[Home](../README.md) · [Download](https://github.com/stellsor/twist/releases/latest) · [Screenshots](examples/README.md)
 
-1. Download the [latest release](https://github.com/stellsor/twist/releases/latest) and extract the whole ZIP.
-2. Open **twist Launcher.exe** and choose a mode:
-   - **Local:** fish on the PC you are using.
-   - **Controller:** manage accounts running in separate Windows/RDP sessions.
-   - **Worker:** run inside each Windows/RDP session you want the controller to manage.
-3. Open GPO, equip your fishing rod, and stand where you can cast into water.
-4. Set your cast point. In a worker, click **Select cursor point**, then **right-click** the spot in Roblox. In Local mode, point at the water and press **F7**.
-5. Choose the account in twist and press **Start fishing**.
+Choose the setup you need:
 
-Keep Roblox visible and in the foreground in each fishing session. twist uses that session's mouse and keyboard.
+- [One account on your desktop](#one-account-local-mode)
+- [Multiple accounts with RDP](#multiple-accounts-with-rdp)
+- [Bait and restocking](#bait-and-restocking)
+- [Fruit storage](#fruit-storage)
+- [Discord alerts](#discord-alerts)
+- [Common problems](#common-problems)
+
+## One account (Local mode)
+
+1. Open the [latest release](https://github.com/stellsor/twist/releases/latest). Under **Assets**, download the file named **twist-VERSION-public.zip**.
+2. Extract the whole ZIP into a folder, then open **twist Launcher.exe** from that folder.
+3. Choose **Local**. Open GPO and wait for your account to appear in twist's account selector.
+4. In GPO, equip your fishing rod and face the water.
+5. In twist, open **Settings** and choose **Common bait** or **Best available**. If auto-buy is enabled, stand near the Common Fish Bait vendor. See [bait setup](#bait-and-restocking).
+6. Point your mouse at the spot in the water where you want to cast, then press **F7**. Your saved point appears in **Settings → Cast point**.
+7. Press **F8** or click **Start fishing**. Leave Roblox in the foreground.
+
+You should see the status move through casting, waiting for a bite and reeling. The live tracker appears during the fishing minigame.
+
+Press **F8** to stop or start again. **F9** stops all fishing in that twist instance.
 
 ## Multiple accounts with RDP
 
-1. Open **Controller** on your main desktop. Administrator access helps it discover workers under other Windows users.
-2. Open **Worker** inside each separate RDP session, with Roblox running there.
-3. Workers should connect automatically. If one does not, copy the code from the controller's **Connections → Manual pairing**, paste it into the worker's **Manual pairing** box, and click **Connect**.
-4. Set a cursor point in each worker.
-5. Select an account to control it, or choose **Total · all accounts** and press **Start all fishing**.
+These steps assume your RDP sessions are already set up and can run Roblox. Use one actively fishing Roblox client per Windows session.
 
-Use one actively fishing Roblox client per Windows session. **Stop all** stops the connected accounts. When Roblox closes, its old entry is removed; a newly opened client is detected automatically. Press Start to resume.
+### 1. Start the controller on your main desktop
 
-## Tabs
+1. Extract the twist ZIP into a folder accessible from your sessions, or copy the extracted folder into each session.
+2. Open **twist Launcher.exe** on your main desktop and choose **Controller**. Administrator access helps it discover workers running under other Windows users.
+3. Open **Connections** and leave the controller running.
 
-| Tab | Use it for |
+### 2. Start a worker in each RDP session
+
+1. Inside the RDP session, open GPO on the account you want to fish with.
+2. Open **twist Launcher.exe** inside that same session and choose **Worker**.
+3. Check that the compact worker says **Connected**. The account should also appear in the main controller.
+4. Select the correct Roblox account in the worker, equip its rod and face the water.
+5. Click **Select cursor point** in the worker, then **right-click** the spot in Roblox where you want to cast. The saved coordinates should change in the worker.
+
+Repeat this for each RDP session. [See the compact worker](examples/0.7.20/09-compact-worker.png).
+
+### 3. Start fishing from the controller
+
+1. Return to your main desktop.
+2. Select an account in the controller and set its bait and fruit options in **Settings**.
+3. Click **Start fishing** for that account, or choose **Total · all accounts** and click **Start all fishing**.
+4. Check that each worker's Roblox client stays in the foreground inside its own session.
+
+**Stop all** stops the connected accounts. Keep the RDP sessions active; a locked or disconnected desktop can stop their inputs. You can minimize twist itself to reduce UI activity.
+
+### If automatic connection does not work
+
+1. In the controller, open **Connections → Manual pairing** and copy the complete pairing code.
+2. In the worker, expand **Manual pairing**, paste the code and click **Connect**.
+3. Check the controller's account selector again.
+
+When Roblox closes, its old entry is removed. The worker detects a newly opened client automatically; press **Start fishing** to resume.
+
+## Bait and restocking
+
+Select the account you want to change, then open **Settings**.
+
+| Option | What happens |
 | --- | --- |
-| **Session** | Shows fishing status, fish caught, runtime, fish per hour, and **Legendary owned** from current fish inventory. **Total** combines the accounts' statistics. |
-| **Tracker** | Shows catch history and round performance. Use **Export catches** to save catch data. |
-| **Fish** | Shows fish inventory, quantities, images, search, rarity filters, and the current Legendary fish total. |
-| **Fruits** | Shows stored devil fruits with quantities, images, search, and rarity filters. |
-| **Settings** | Controls bait, restocking, fruit handling, session limits, and timing for the selected account. |
-| **Alerts** | Sets up Discord notifications for successfully stored fruits. |
-| **Connections** | Shows connected workers and provides discovery and manual pairing controls. |
+| **Common bait** | Uses Common Fish Bait. |
+| **Best available** | Uses Legendary first, then Rare, then Common when the better bait runs out. |
+| **Automatically buy Common bait** | Restocks Common bait when it falls below your chosen threshold. |
 
-Fish and fruit inventories sort from highest rarity to lowest. Select **Total** to combine inventories across accounts. Catch totals count successful minigames even when a fish's inventory stack is full.
+To set up restocking:
 
-## Bait and fruit settings
+1. Enable **Automatically buy Common bait**.
+2. Set **Buy when below** to the stock level that should trigger a purchase.
+3. Set **Amount to buy** to how many more bait to purchase.
+4. Stand within **12 studs** of the Common Fish Bait vendor and have enough Peli.
+5. Stop and start fishing to apply the changes.
 
-- **Common bait:** uses Common bait.
-- **Best available:** uses Legendary first, then Rare, then Common as stock runs out.
-- **Auto-buy bait:** set **Buy when below** and **Amount to buy** for Common bait. For example, below 80 → buy 250 more. Defaults are 50 and 100. Stand within **12 studs** of the Common Fish Bait vendor and have enough Peli.
-- **Automatically equip and store devil fruits:** checks the hotbar and backpack between casts, stores new fruits, then equips the rod again.
-- **Drop already-owned fruits:** drops a carried duplicate with Backspace if that fruit is already stored. Turn this off to keep duplicates.
-- **Session limits:** stops after the chosen rounds or minutes, finishing the current round first. **0** means unlimited.
-- **Timing & calibration:** adjusts casting delays, the cast point, and the rod slot. Start with the defaults.
+For example, **Buy when below: 50** and **Amount to buy: 100** buys 100 more when stock drops under 50. A stock of exactly 50 does not trigger it.
 
-Settings save automatically as you change them. Stop and start fishing to apply fishing changes.
+If you are fishing away from the vendor, turn off auto-buy and bring enough bait for the run.
+
+## Fruit storage
+
+In **Settings**, enable **Automatically equip and store devil fruits**.
+
+Between casts, twist checks the hotbar and backpack, equips a carried fruit, clicks **Store Fruit**, then restores the rod.
+
+**Drop already-owned fruits with Backspace** controls duplicates. Enable it to drop fruits you already have stored, or turn it off to keep them.
+
+Use the **Fruits** tab to view stored fruit quantities and rarities.
 
 ## Discord alerts
 
-In **Alerts**, paste your webhook URL and enable stored-fruit notifications. Use **Send test** to check delivery.
+1. Open **Alerts** in the controller, or in Local mode.
+2. Paste your Discord webhook URL and enable stored-fruit notifications.
+3. Click **Send test** and check the Discord channel for the message.
+4. For Mythical pings, enable **Ping only when a Mythical fruit is stored**, then choose **User**, **Role** or **Everyone**. Enter the user or role ID when needed.
 
-Storage messages include the fruit name, fish caught, fishing time, and remaining bait. Enable **Mythical-only pings** and choose a user, role, or Everyone if you want mentions for Mythical fruits. Test messages do not ping.
+A successful storage message includes the fruit name, fish caught, fishing time and remaining bait. Test messages do not ping. In an RDP setup, configure alerts on the controller.
 
-## Minimizing twist
+## Tabs and totals
 
-The UI refreshes less often while minimized. Fishing, worker connections and alerts keep running. Charts and inventories refresh when you restore the window.
-
-## Controls and updates
-
-| Control | Action |
+| Tab | What it shows |
 | --- | --- |
-| **F7** | Save the cast point at the cursor. |
-| **F8** | Start or stop fishing. |
-| **F9** | Stop fishing. |
-| Worker **Select cursor point** | Right-click in Roblox to choose the cast point. |
+| **Session** | Current status, runtime, fish caught, fish per hour, fish owned and Legendary fish owned. |
+| **Tracker** | Catch history, round performance and CSV exports. |
+| **Fish** | Fish inventory with quantities, images, search and rarity filters. |
+| **Fruits** | Stored fruits with quantities, images, search and rarity filters. |
+| **Settings** | Options for the selected account. Changes save automatically. |
+| **Alerts** | Discord notifications and Mythical pings. |
+| **Connections** | Workers, discovery and manual pairing. |
 
-If bait or purchase clicks land in the wrong place, open the worker's **UI alignment**, click **Align bait / purchase UI**, then right-click the center of the highest bait row.
+Select **Total · all accounts** to combine inventories and statistics. To edit an account's settings, select that account instead.
 
-Reopen the launcher to check for updates. Close controllers and workers using that folder, then choose **Download update**. Settings and history carry over.
+**Fish caught** counts completed successful minigames, even when that fish's inventory stack is full. **Fish owned** and **Legendary owned** show what is currently in inventory.
 
-The launcher checks offsets on opening and removes the update ZIP after checking and unpacking it. If extraction fails or is cancelled, the ZIP is kept.
+Session limits are in **Settings**. Set the round or time limit to **0** for an unlimited run. Limits finish the current round before stopping.
+
+## Common problems
+
+| Problem | What to check |
+| --- | --- |
+| Account is missing | Join GPO and wait for it to load. For RDP, make sure the worker is running in the same Windows session as Roblox. |
+| Worker is not connected | Try **Connections → Scan now**, then use manual pairing if needed. |
+| Cast lands in the wrong place | Stop fishing, face the water and save the point again. Use **F7** in Local mode, or the worker's **Select cursor point** followed by a right-click. |
+| Waiting for bait or the vendor | Check your selected bait and stock. Move within 12 studs of the Common Fish Bait vendor, or turn off auto-buy if you are fishing elsewhere. |
+| Bait or purchase clicks miss | Move the worker panel away from the game buttons. Open **UI alignment → Align bait / purchase UI**, then right-click the center of the highest bait row. |
+| Fishing stops when switching apps | Roblox needs the foreground in its fishing session. Use separate RDP sessions to fish while using your main desktop. |
+| A reopened Roblox client is idle | Wait for the worker to detect it, select the new entry and press **Start fishing** again. |
+| Settings seem unchanged | They save automatically, but fishing settings take effect after stopping and starting the account. |
+| Discord test does not arrive | Check the webhook URL and the status shown in **Alerts** after pressing **Send test**. |
+
+## Updating
+
+1. Open **twist Launcher.exe** to check for a new version.
+2. Close every controller and worker using the folder you are updating.
+3. Choose **Download update** when the launcher offers it.
+4. After installation, reopen the controller and workers. Update separate copies of twist as well if your sessions use different folders.
+
+Your settings and history carry over. The launcher also checks offsets whenever it opens. It removes the update ZIP after checking and unpacking it; a failed or cancelled extraction keeps the ZIP.
+
+While twist is minimized, the UI refreshes less often. Fishing, connections and alerts continue, and the display refreshes when you restore the window.

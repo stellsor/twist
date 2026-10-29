@@ -1,87 +1,59 @@
-# Screenshots
+# UI examples
 
-[Download](https://github.com/stellsor/twist/releases/latest) · [Setup](../USAGE.md) · [Home](../../README.md)
+[Home](../../README.md) · [Usage guide](../USAGE.md) · [Download twist](https://github.com/stellsor/twist/releases/latest)
 
-These are from twist 0.7.20, using demo accounts and sample stats. Some details have changed in newer versions.
+Screenshots from twist **0.7.20**, using demo accounts and sample inventories. Newer versions may look slightly different.
 
-<details open>
-<summary>Launcher</summary>
+## Launcher
 
-Choose Local, Controller or Worker.
+Choose Worker, Controller, or Local mode. [Setup walkthrough](../USAGE.md).
 
-![Launcher](0.7.20/01-launcher.png)
+![Launcher — twist UI example](0.7.20/01-launcher.png)
 
-</details>
+## Live tracking
 
-<details>
-<summary>Session</summary>
+Session statistics, reel tracking, and current-round progress.
 
-Fishing status and the live reel tracker.
+![Live tracking — twist UI example](0.7.20/02-live-tracking.png)
 
-![Session](0.7.20/02-live-tracking.png)
+## Multiple accounts
 
-</details>
+Combined totals and a per-account overview.
 
-<details>
-<summary>Multiple accounts</summary>
+![Multiple accounts — twist UI example](0.7.20/03-multiple-accounts.png)
 
-Combined stats and controls for connected accounts.
+## Catch tracker
 
-![Multiple accounts](0.7.20/03-multiple-accounts.png)
+Catch history, rarity totals, and export controls.
 
-</details>
+![Catch tracker — twist UI example](0.7.20/04-catch-tracker.png)
 
-<details>
-<summary>Catch tracker</summary>
+## Fish inventory
 
-Catch history and exports.
+Fish artwork, quantities, search, and rarity filters.
 
-![Catch tracker](0.7.20/04-catch-tracker.png)
+![Fish inventory — twist UI example](0.7.20/05-fish-inventory.png)
 
-</details>
+## Fruit inventory
 
-<details>
-<summary>Fish inventory</summary>
+Stored devil fruits with colored icons and rarity filters.
 
-Fish quantities, images and rarity filters.
+![Fruit inventory — twist UI example](0.7.20/06-fruit-inventory.png)
 
-![Fish inventory](0.7.20/05-fish-inventory.png)
+## Fishing settings
 
-</details>
+Bait preferences, automatic restocking, fruit handling, and session limits.
 
-<details>
-<summary>Fruit inventory</summary>
+![Fishing settings — twist UI example](0.7.20/07-fishing-settings.png)
 
-Stored fruits with their icons and rarities.
+## Discord alerts
 
-![Fruit inventory](0.7.20/06-fruit-inventory.png)
+Stored-fruit notifications, Mythical ping options, and a message preview.
 
-</details>
+![Discord alerts — twist UI example](0.7.20/08-discord-alerts.png)
 
-<details>
-<summary>Settings</summary>
+## Compact worker
 
-Bait, restocking, fruit storage and session limits.
+Connection status, cursor-point selection, and UI alignment.
 
-![Settings](0.7.20/07-fishing-settings.png)
-
-</details>
-
-<details>
-<summary>Discord alerts</summary>
-
-Stored-fruit messages and Mythical ping options.
-
-![Discord alerts](0.7.20/08-discord-alerts.png)
-
-</details>
-
-<details>
-<summary>Worker</summary>
-
-Connection status and cursor-point selection.
-
-![Worker](0.7.20/09-compact-worker.png)
-
-</details>
-
+![Compact worker — twist UI example](0.7.20/09-compact-worker.png)
