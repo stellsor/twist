@@ -1,10 +1,11 @@
-name: Publish audited release
+name: Publish twist
 
 on:
   push:
     branches: [main]
     paths:
       - release.json
+      - CHANGELOG.md
       - releases/**
       - .github/workflows/publish-release.yml
   workflow_dispatch:
@@ -21,7 +22,7 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 10
     steps:
-      - name: Verify package and publish release
+      - name: Check package and publish
         shell: pwsh
         env:
           RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -113,3 +114,30 @@ jobs:
             $release = Invoke-RestMethod -Method Patch -Uri "$api/repos/$repo/releases/$($release.id)" -Headers $headers -ContentType 'application/json' -Body $request
           }
           Write-Host "Published $($release.html_url)"
+
+          # Keep the release pages in sync with the short notes in the changelog.
+          $changesResponse = Invoke-WebRequest -Uri "$api/repos/$repo/contents/CHANGELOG.md?ref=$revision" -Headers $rawHeaders
+          $changes = if ($changesResponse.Content -is [byte[]]) { [System.Text.Encoding]::UTF8.GetString($changesResponse.Content) } else { [string]$changesResponse.Content }
+          $notesByVersion = @{}
+          foreach ($section in [regex]::Matches($changes, '(?ms)^## (?:\[(?<version>\d+\.\d+\.\d+)\]\([^\r\n]+\)|(?<version>\d+\.\d+\.\d+))\r?\n(?<notes>.*?)(?=^## |\z)')) {
+            $lines = @($section.Groups['notes'].Value -split '\r?\n' | Where-Object { $_.StartsWith('- ') })
+            if ($lines.Count -gt 0) { $notesByVersion[$section.Groups['version'].Value] = $lines -join "`n" }
+          }
+          $published = @(Invoke-RestMethod -Uri "$api/repos/$repo/releases?per_page=100" -Headers $headers)
+          foreach ($item in $published) {
+            if ($item.draft -or $item.prerelease -or $item.tag_name -notmatch '^v(\d+\.\d+\.\d+)$') { continue }
+            $itemVersion = $item.tag_name.Substring(1)
+            if (-not $notesByVersion.ContainsKey($itemVersion)) { continue }
+            $itemAssets = @($item.assets)
+            if ($itemAssets.Count -ne 1 -or $itemAssets[0].name -cne "twist-$itemVersion-public.zip" -or $itemAssets[0].digest -notmatch '^sha256:([0-9a-f]{64})$') { throw "Unexpected download for $($item.tag_name); descriptions were not updated." }
+            $itemHash = $itemAssets[0].digest.Substring(7)
+            $description = $notesByVersion[$itemVersion] + "`n`n<details>`n<summary>Checksum</summary>`n`nSHA-256: ``$itemHash```n`n</details>"
+            if ($item.body -ceq $description) { continue }
+            $request = @{ body = $description } | ConvertTo-Json
+            $updated = Invoke-RestMethod -Method Patch -Uri "$api/repos/$repo/releases/$($item.id)" -Headers $headers -ContentType 'application/json' -Body $request
+            if ($updated.body -cne $description -or $updated.tag_name -cne $item.tag_name -or $updated.target_commitish -cne $item.target_commitish -or $updated.draft -or $updated.prerelease) { throw 'Release description update did not match.' }
+            $beforeAssets = ConvertTo-Json -Compress -InputObject @($itemAssets | ForEach-Object { "$($_.id)|$($_.name)|$($_.size)|$($_.digest)" })
+            $afterAssets = ConvertTo-Json -Compress -InputObject @($updated.assets | ForEach-Object { "$($_.id)|$($_.name)|$($_.size)|$($_.digest)" })
+            if ($beforeAssets -cne $afterAssets) { throw 'Release downloads changed unexpectedly.' }
+            Write-Host "Updated notes for $($item.tag_name)"
+          }

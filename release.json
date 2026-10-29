@@ -8,7 +8,7 @@
     "app/twist.exe": "ec9ae24950e449db0d5ffdfe601244a711f2db329e2a13dc62b25545b6aa1b10"
   },
   "notes": [
-    "The launcher removes its verified update ZIP after successful extraction and preparation, with cleanup retries for locked downloads after installation. Failed or cancelled extraction keeps the download.",
-    "Inventory totals use larger text, a clearer Legendary count and more space above the rarity filter."
+    "Update ZIPs are deleted once they’ve been checked and unpacked. If unpacking fails or is cancelled, the ZIP is kept.",
+    "Made the inventory totals easier to read and gave them more room above the rarity filter."
   ]
 }

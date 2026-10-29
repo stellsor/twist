@@ -23,9 +23,9 @@ Keep Roblox visible and in the foreground in each fishing session. twist uses th
 
 Use one actively fishing Roblox client per Windows session. **Stop all** stops the connected accounts. When Roblox closes, its old entry is removed; a newly opened client is detected automatically. Press Start to resume.
 
-## What each tab does
+## Tabs
 
-| Tab | What it does |
+| Tab | Use it for |
 | --- | --- |
 | **Session** | Shows fishing status, fish caught, runtime, fish per hour, and **Legendary owned** from current fish inventory. **Total** combines the accounts' statistics. |
 | **Tracker** | Shows catch history and round performance. Use **Export catches** to save catch data. |
@@ -37,7 +37,7 @@ Use one actively fishing Roblox client per Windows session. **Stop all** stops t
 
 Fish and fruit inventories sort from highest rarity to lowest. Select **Total** to combine inventories across accounts. Catch totals count successful minigames even when a fish's inventory stack is full.
 
-## Main settings
+## Bait and fruit settings
 
 - **Common bait:** uses Common bait.
 - **Best available:** uses Legendary first, then Rare, then Common as stock runs out.
@@ -66,4 +66,6 @@ Storage messages include the fruit name, fish caught, fishing time, and remainin
 
 If bait or purchase clicks land in the wrong place, open the worker's **UI alignment**, click **Align bait / purchase UI**, then right-click the center of the highest bait row.
 
-Reopen the launcher to check for updates. Choose **Download update** at the bottom when offered; close controllers and workers using that folder first. The downloaded update ZIP is removed after successful verification and extraction. Failed or cancelled extraction keeps it for recovery. Offsets are checked automatically whenever the launcher opens.
+Reopen the launcher to check for updates. Close controllers and workers using that folder, then choose **Download update**. Settings and history carry over.
+
+The launcher checks offsets on opening and removes the update ZIP after checking and unpacking it. If extraction fails or is cancelled, the ZIP is kept.
