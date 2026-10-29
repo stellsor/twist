@@ -99,7 +99,7 @@ Use the **Fruits** tab to view stored fruit quantities and rarities.
 1. Open **Alerts** in the controller, or in Local mode.
 2. Paste your Discord webhook URL and enable stored-fruit notifications.
 3. Click **Send test** and check the Discord channel for the message.
-4. For Mythical pings, enable **Ping only when a Mythical fruit is stored**, then choose **User**, **Role** or **Everyone**. Enter the user or role ID when needed.
+4. For Mythical pings, enable **Ping only when a Mythical fruit is stored**, then choose **User**, **Role** or **Everyone**. For a notification ping, use the numeric **Discord User ID** or **Discord Role ID**, rather than a username. Enable **Developer Mode** in Discord under Settings → Advanced, then right-click the profile or role and choose **Copy User ID** / **Copy Role ID**. A pasted mention also works. If you enter a username or other text, twist still sends the fruit alert and includes that text on Mythical alerts, but Discord will not ping it.
 
 A successful storage message includes the fruit name, fish caught, fishing time and remaining bait. Test messages do not ping. In an RDP setup, configure alerts on the controller.
 
@@ -144,4 +144,6 @@ Session limits are in **Settings**. Set the round or time limit to **0** for an 
 
 Your settings and history carry over. The launcher also checks offsets whenever it opens. It removes the update ZIP after checking and unpacking it; a failed or cancelled extraction keeps the ZIP.
 
-While twist is minimized, the UI refreshes less often. Fishing, connections and alerts continue, and the display refreshes when you restore the window.
+Under **Settings → Display**, **Use hardware acceleration when available** lets Windows use the available GPU renderer. The setting saves immediately. If graphics behave poorly, switch it off to use software rendering. Windows or RDP may select software rendering even with the option enabled; the status beneath it shows the session’s reported capability.
+
+While twist is minimized, live visual animation and sampling pause and the dashboard refreshes once per second. Fishing, connections and alerts continue. Restoring the window refreshes its data and resumes the display.

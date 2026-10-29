@@ -2,6 +2,13 @@
 
 [Download](https://github.com/stellsor/twist/releases/latest) · [Setup](docs/USAGE.md)
 
+## [0.7.27](https://github.com/Stellsor/twist/releases/tag/v0.7.27)
+
+- Fixed round-transition freezes by moving history saves off the UI thread and reducing repeated catch matching.
+- Smoothed the current-round display and made inventory previews update without rebuilding the whole list.
+- Added a saved hardware acceleration option in Settings. Visual animation pauses while minimized.
+- Fixed controller fruit alerts being blocked by ping settings. Usernames are sent as text; numeric Discord IDs create pings.
+
 ## [0.7.26](https://github.com/stellsor/twist/releases/tag/v0.7.26)
 
 - Smoothed the live reel indicator and made tabs refresh as soon as you open them.

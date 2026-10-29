@@ -1,16 +1,16 @@
 {
-  "version": "0.7.26",
-  "asset": "releases/twist-0.7.26-public.zip",
-  "sha256": "b7ee63ca8f6f72b48d8172281a67dcc572c5528fe17fbd5a9bc35d85c783674c",
-  "bytes": 8736446,
+  "version": "0.7.27",
+  "asset": "releases/twist-0.7.27-public.zip",
+  "sha256": "e68b4081f74dc2598061fb2f9cdaf023b37215c78010c5555225b96d9c3b8104",
+  "bytes": 8743854,
   "protected_executables": {
-    "twist Launcher.exe": "22347f371dca7897bba6660da864122ff3be372fd18bde4521f553736e3c9a30",
-    "app/twist.exe": "3c021a2e0daf9d38cee11ba70d635561c7df29e7d3a0af9cc2605c110cd5f4cf"
+    "twist Launcher.exe": "650900d72c469e3ada265e7d88608660d1c51a7685c42856019647db07034703",
+    "app/twist.exe": "31b1b99cdb514f2eef83bde93c5bc3f6a42c618c0f9595ff651af82e34e7bf03"
   },
   "notes": [
-    "Smoothed the live reel indicator and made tabs refresh as soon as you open them.",
-    "Reduced repeated work in account totals and inventory previews.",
-    "Minimized windows now pause UI animations and refresh less often. Fishing, connections and alerts keep running.",
-    "Moved inventory-cache saves off the UI thread to reduce stutters with larger inventories."
+    "Fixed round-transition freezes by moving history saves off the UI thread and reducing repeated catch matching.",
+    "Smoothed the current-round display and made inventory previews update without rebuilding the whole list.",
+    "Added a saved hardware acceleration option in Settings. Visual animation pauses while minimized.",
+    "Fixed controller fruit alerts being blocked by ping settings. Usernames are sent as text; numeric Discord IDs create pings."
   ]
 }
