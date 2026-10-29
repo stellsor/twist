@@ -24,7 +24,7 @@ Keep Roblox in front while fishing. twist uses the mouse and keyboard in that Wi
 - Catch history, fish per hour and session stats.
 - Discord notifications for stored fruits, with optional Mythical pings.
 
-Settings save as you change them. [The setup guide](docs/USAGE.md) covers each option.
+Settings save as you change them. Minimize twist to reduce UI activity while fishing. [The setup guide](docs/USAGE.md) covers each option.
 
 ## Multiple accounts
 

@@ -2,6 +2,13 @@
 
 [Download](https://github.com/stellsor/twist/releases/latest) · [Setup](docs/USAGE.md)
 
+## [0.7.26](https://github.com/stellsor/twist/releases/tag/v0.7.26)
+
+- Smoothed the live reel indicator and made tabs refresh as soon as you open them.
+- Reduced repeated work in account totals and inventory previews.
+- Minimized windows now pause UI animations and refresh less often. Fishing, connections and alerts keep running.
+- Moved inventory-cache saves off the UI thread to reduce stutters with larger inventories.
+
 ## [0.7.25](https://github.com/stellsor/twist/releases/tag/v0.7.25)
 
 - Update ZIPs are deleted once they’ve been checked and unpacked. If unpacking fails or is cancelled, the ZIP is kept.
@@ -12,13 +19,13 @@
 - Added a Legendary fish total to Session and Fish inventory.
 - Select Total to see how many Legendary fish all your accounts currently own.
 
+<details>
+<summary>Older updates</summary>
+
 ## [0.7.23](https://github.com/stellsor/twist/releases/tag/v0.7.23)
 
 - Added custom bait restocking amounts. Choose when to restock and how much to buy; the defaults are still below 50 → buy 100.
 - Updated Roblox UI reading so bait selection, purchase prompts and Store Fruit are recognised again.
-
-<details>
-<summary>Older updates</summary>
 
 ## [0.7.22](https://github.com/stellsor/twist/releases/tag/v0.7.22)
 

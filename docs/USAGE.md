@@ -55,6 +55,10 @@ In **Alerts**, paste your webhook URL and enable stored-fruit notifications. Use
 
 Storage messages include the fruit name, fish caught, fishing time, and remaining bait. Enable **Mythical-only pings** and choose a user, role, or Everyone if you want mentions for Mythical fruits. Test messages do not ping.
 
+## Minimizing twist
+
+The UI refreshes less often while minimized. Fishing, worker connections and alerts keep running. Charts and inventories refresh when you restore the window.
+
 ## Controls and updates
 
 | Control | Action |
