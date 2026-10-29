@@ -123,11 +123,13 @@ jobs:
             $lines = @($section.Groups['notes'].Value -split '\r?\n' | Where-Object { $_.StartsWith('- ') })
             if ($lines.Count -gt 0) { $notesByVersion[$section.Groups['version'].Value] = $lines -join "`n" }
           }
-          $published = @(Invoke-RestMethod -Uri "$api/repos/$repo/releases?per_page=100" -Headers $headers)
+          $published = Invoke-RestMethod -Uri "$api/repos/$repo/releases?per_page=100" -Headers $headers
+          $descriptionsChecked = 0
           foreach ($item in $published) {
             if ($item.draft -or $item.prerelease -or $item.tag_name -notmatch '^v(\d+\.\d+\.\d+)$') { continue }
             $itemVersion = $item.tag_name.Substring(1)
             if (-not $notesByVersion.ContainsKey($itemVersion)) { continue }
+            $descriptionsChecked++
             $itemAssets = @($item.assets)
             if ($itemAssets.Count -ne 1 -or $itemAssets[0].name -cne "twist-$itemVersion-public.zip" -or $itemAssets[0].digest -notmatch '^sha256:([0-9a-f]{64})$') { throw "Unexpected download for $($item.tag_name); descriptions were not updated." }
             $itemHash = $itemAssets[0].digest.Substring(7)
@@ -141,3 +143,4 @@ jobs:
             if ($beforeAssets -cne $afterAssets) { throw 'Release downloads changed unexpectedly.' }
             Write-Host "Updated notes for $($item.tag_name)"
           }
+          if ($descriptionsChecked -eq 0) { throw 'No matching release descriptions were found.' }
