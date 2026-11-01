@@ -132,7 +132,7 @@ A successful storage message includes the fruit name, fish caught, fishing time 
 | **Tracker** | Catch history, round performance and CSV exports. |
 | **Inventory** | Fish and Fruits subtabs, with quantities, images, search and rarity filters. |
 | **World** | Worker coordinates, Eye countdowns, pulse targets and saved spawn history. |
-| **Settings** | General options for the selected account, plus the Connections subtab. Changes save automatically. |
+| **Settings** | General options for the selected account, plus Connections and Activity subtabs. Changes save automatically. |
 | **Alerts** | Discord notifications and Mythical pings. |
 
 Select **Total · all accounts** to combine inventories and statistics. To edit an account's settings, select that account instead.
@@ -140,6 +140,18 @@ Select **Total · all accounts** to combine inventories and statistics. To edit 
 **Fish caught** counts completed successful minigames, even when that fish's inventory stack is full. **Fish owned** and **Legendary owned** show what is currently in inventory.
 
 Session limits are in **Settings → General**. Set the round or time limit to **0** for an unlimited run. Limits finish the current round before stopping.
+
+## Activity and crash reports
+
+Open **Settings → Activity**, or click **Activity** at the bottom of the window. Select an account to filter its events, or choose **Total** in the controller to see all accounts. Search by account, event or reason, and use **Warnings & errors** or **Stops & crashes** to narrow the list.
+
+The log includes fishing starts, casts and catches, bait purchases and retries, fruit handling, connection changes, and the reason fishing stopped. The latest stop or unexpected exit appears above the list. A supply retry is a warning, not a stopped run.
+
+Activity saves locally across restarts. The newest 5,000 events are retained and the view shows up to 300 matching events. Worker activity reaches its controller; crash details are sent after that worker reopens and reconnects. Update both the controller and workers to use this feature.
+
+For a captured application exception, **Open logs** opens the folder containing its local crash report and recent activity. If twist was force-closed, Windows restarted, or a failure bypassed the exception handler, the next launch reports an **unexpected exit** with the last observed state. That state is context, not proof of what caused the exit. No crash reports are automatically uploaded.
+
+Select an entry and click **Copy event** to copy its details when asking for help. Check any report before sharing it; it can contain account names and local file paths.
 
 ## Common problems
 
@@ -150,6 +162,7 @@ Session limits are in **Settings → General**. Set the round or time limit to *
 | Cast lands in the wrong place | Stop fishing, face the water and save the point again. Use **F7** in Local mode, or the worker's **Select cursor point** followed by a right-click. |
 | Waiting for bait or the vendor | Check your selected bait and stock. Move within 12 studs of the Common Fish Bait vendor, or turn off auto-buy if you are fishing elsewhere. |
 | Bait or purchase clicks miss | Move the worker panel away from the game buttons. Open **UI alignment → Align bait / purchase UI**, then right-click the center of the highest bait row. |
+| Unsure why fishing stopped | Open **Settings → Activity** and choose **Stops & crashes**. For a worker crash, reopen and reconnect the worker to bring its report into the controller. |
 | Fishing stops when switching apps | Roblox needs the foreground in its fishing session. Use separate RDP sessions to fish while using your main desktop. |
 | A reopened Roblox client is idle | Wait for the worker to detect it, select the new entry and press **Start fishing** again. |
 | Settings seem unchanged | They save automatically, but fishing settings take effect after stopping and starting the account. |

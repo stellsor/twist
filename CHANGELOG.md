@@ -2,6 +2,12 @@
 
 [Download](https://github.com/stellsor/twist/releases/latest) · [Setup](docs/USAGE.md)
 
+## [0.7.29](https://github.com/Stellsor/twist/releases/tag/v0.7.29)
+
+- Added a searchable activity log with warnings and clear fishing stop reasons.
+- Worker activity now appears in the controller and stays saved after restarting.
+- Added local crash reports and last-run details for unexpected exits.
+
 ## [0.7.28](https://github.com/Stellsor/twist/releases/tag/v0.7.28)
 
 - Added World coordinates, All Seeing Eye timers and alerts that quote the in-game announcement with its pulse target.
