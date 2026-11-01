@@ -63,24 +63,6 @@ Repeat this for each RDP session. [See the compact worker](examples/0.7.20/09-co
 
 When Roblox closes, its old entry is removed. The worker detects a newly opened client automatically; press **Start fishing** to resume.
 
-## Needs attention and bait estimates
-
-Open **Session → Needs attention**, or click **Attention** at the bottom of the window. This view covers all accounts seen by this app, including disconnected clients, intentionally idle accounts, repeated retries and accounts with no confirmed catches for the chosen interval. It reports problems without stopping fishing.
-
-**Bait estimates** shows how long the current usable stock might last. Common mode counts only Common bait; Best available counts Legendary, Rare and Common. Estimates begin after at least three bait are depleted over a minute of observed fishing. Purchases are excluded from usage, and changing the run or bait preference restarts learning. Manual bait removal can affect the estimate. Auto-buy may extend fishing beyond the displayed time. The shortest available estimate also appears on the Total overview.
-
-In **Alerts**, enable **Notify when an account stops catching fish** to send a Discord warning. Set **No catches for** and **Repeat at most every** in minutes. Defaults are 5 and 15 minutes. Alerts include the current status and latest supply or fruit warning, and never ping. A confirmed catch clears the stall episode; deliberately stopped accounts do not trigger stall alerts. The threshold also controls the attention panel.
-
-## Worker groups
-
-In the controller, open **Session → Needs attention → Worker groups**.
-
-1. Enter a name and click **Create group**.
-2. With the named group selected, click account rows to toggle membership. Changes save immediately.
-3. Use **Start group** or **Stop group** for that selection. **All accounts** and **Ungrouped** are built-in selections.
-
-An account belongs to one named group at a time, and membership follows its Roblox identity when it reconnects. Starting a group skips input sessions already busy fishing, including sessions running an account outside that group. Delete removes only the grouping and does not change fishing.
-
 ## Bait and restocking
 
 Select the account you want to change, then open **Settings → General**.
@@ -112,18 +94,6 @@ Between casts, twist checks the hotbar and backpack, equips a carried fruit, cli
 **Drop already-owned fruits with Backspace** controls duplicates. Enable it to drop fruits you already have stored, or turn it off to keep them.
 
 Use **Inventory → Fruits** to view stored fruit quantities and rarities.
-
-## Inventory gains and fish stack caps
-
-In **Inventory → Fish** or **Inventory → Fruits**, choose **Everything owned** or **Gained this run** beside the rarity filter. Gains are observed positive inventory additions during the current run, rather than the difference between the first and last stock count. They may include manual additions or trades. Starting another run resets this view; Total combines unique accounts.
-
-Gains depend on the inventory changes the app receives. They are not the catch counter: a catch at the 40-fish stack cap still counts as a successful minigame but cannot add inventory. When showing owned fish, a full individual stack is marked **40 / 40 · full**. Total shows how many individual accounts have that fish at the cap; a combined count of 40 across several accounts is not considered a full individual stack. Cap markers do not apply to fruits or the gains view.
-
-## Session recaps
-
-Expand **Session → Needs attention → Session recaps** to review completed fishing runs. Each recap contains runtime, confirmed catches, fish per hour, verified bait purchases, fruits stored, duplicates dropped and the stop reason. The app keeps the latest 200 recaps locally and displays the newest 20 in the selected account’s scope, or across accounts when Total is selected.
-
-For Discord summaries, enable **Alerts → Send a session recap when fishing stops**. This is separate from stored-fruit and spawn notifications, and is off by default. Recaps never ping. Worker recaps reach the controller, including saved recaps when the worker reconnects; old recaps from before the controller was opened are not sent as new notifications. Bait remaining is the last reported stock; unavailable quantities are shown as unknown.
 
 ## World coordinates and spawn history
 
@@ -158,12 +128,12 @@ A successful storage message includes the fruit name, fish caught, fishing time 
 
 | Tab | What it shows |
 | --- | --- |
-| **Session** | Overview with runtime, catches, rate, bait runway and owned totals; Needs attention with problems, groups and recaps. |
+| **Session** | Current status, runtime, fish caught, fish per hour, fish owned and Legendary fish owned. |
 | **Tracker** | Catch history, round performance and CSV exports. |
-| **Inventory** | Fish and Fruits, owned or gained this run, images, search, rarities and individual stack caps. |
+| **Inventory** | Fish and Fruits subtabs, with quantities, images, search and rarity filters. |
 | **World** | Worker coordinates, Eye countdowns, pulse targets and saved spawn history. |
 | **Settings** | General options for the selected account, plus Connections and Activity subtabs. Changes save automatically. |
-| **Alerts** | Stored-fruit and spawn alerts, Mythical pings, optional session recaps and stall warnings. |
+| **Alerts** | Discord notifications and Mythical pings. |
 
 Select **Total · all accounts** to combine inventories and statistics. To edit an account's settings, select that account instead.
 

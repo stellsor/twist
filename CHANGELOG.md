@@ -2,14 +2,6 @@
 
 [Download](https://github.com/stellsor/twist/releases/latest) · [Setup](docs/USAGE.md)
 
-## [0.7.30](https://github.com/Stellsor/twist/releases/tag/v0.7.30)
-
-- Added Needs attention for disconnected, idle, retrying and stalled accounts.
-- Added bait time estimates and optional stall alerts with adjustable timing.
-- Added saved session recaps and optional Discord summaries.
-- Added Gained this run inventory views and per-account fish stack cap indicators.
-- Added saved worker groups with separate start and stop controls.
-
 ## [0.7.29](https://github.com/Stellsor/twist/releases/tag/v0.7.29)
 
 - Added a searchable activity log with warnings and clear fishing stop reasons.

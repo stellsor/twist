@@ -51,11 +51,8 @@ For multiple accounts, run one worker per RDP session and connect them to your c
 | **World** | Worker coordinates, All Seeing Eye countdowns, and saved AFK history. |
 | **Spawn alerts** | Sends the exact fruit-spawn announcement and Eye pulse coordinates to Discord, with saved history in World. Requires an All Seeing Eye. |
 | **Activity log** | Search saved events, see why fishing stopped, and review local crash details under Settings → Activity. |
-| **Needs attention** | Brings disconnected, idle, retrying and stalled accounts together, with bait time estimates. |
-| **Worker groups** | Saves named account groups with separate start and stop controls. |
-| **Session recaps** | Saves each run’s catches, rate, supplies and fruits, with optional Discord summaries and stall alerts. |
 | **Catch tracker** | Tracks catches, runtime, fish per hour, and catch history. |
-| **Live inventories** | Shows fish and stored fruits, observed gains this run, rarity filters, a Legendary fish total, and individual fish stack cap markers. |
+| **Live inventories** | Shows fish and stored fruits with images, quantities, rarity filters, and a Legendary fish owned total. |
 | **Discord alerts** | Reports stored fruits and fishing stats, with optional Mythical pings. |
 
 [Set up spawn alerts →](docs/USAGE.md#world-coordinates-and-spawn-history)
