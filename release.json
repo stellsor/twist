@@ -1,15 +1,17 @@
 {
-  "version": "0.7.29",
-  "asset": "releases/twist-0.7.29-public.zip",
-  "sha256": "653a2de95e9d55b236703d1a793931ce9ca586960b9b06b680bb27697e189eb4",
-  "bytes": 8783928,
+  "version": "0.7.30",
+  "asset": "releases/twist-0.7.30-public.zip",
+  "sha256": "2d7488c274754ccf0d76ce80e6c3b0138c313fc210e59cfdf0b74d7779d969a5",
+  "bytes": 8809917,
   "protected_executables": {
-    "twist Launcher.exe": "32036951d3def0da0fc8eba1c02e3146f117506cd744b70ebe8bb52e89624851",
-    "app/twist.exe": "c3ceb9c43ce7c5ca98aab71ee4bdf3ad803e99cf636c7f6c79072632148dd12e"
+    "twist Launcher.exe": "a413360af56bf372d981e842d9635b5551486e467859b1a584b1058983eba55f",
+    "app/twist.exe": "888c0c86f5506580d3a0a513ce0981497a898983deb2b41ba0d8c0017026fd14"
   },
   "notes": [
-    "Added a searchable activity log with warnings and clear fishing stop reasons.",
-    "Worker activity now appears in the controller and stays saved after restarting.",
-    "Added local crash reports and last-run details for unexpected exits."
+    "Added Needs attention for disconnected, idle, retrying and stalled accounts.",
+    "Added bait time estimates and optional stall alerts with adjustable timing.",
+    "Added saved session recaps and optional Discord summaries.",
+    "Added Gained this run inventory views and per-account fish stack cap indicators.",
+    "Added saved worker groups with separate start and stop controls."
   ]
 }
