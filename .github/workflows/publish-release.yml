@@ -22,40 +22,6 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 10
     steps:
-      - name: Restore activity-log release
-        shell: pwsh
-        env:
-          RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          $ErrorActionPreference = 'Stop'
-          $repo = $env:GITHUB_REPOSITORY
-          if ($repo.ToLowerInvariant() -cne 'stellsor/twist') { throw 'Unexpected repository.' }
-          $api = $env:GITHUB_API_URL
-          $headers = @{ Authorization = "Bearer $env:RELEASE_TOKEN"; Accept = 'application/vnd.github+json'; 'X-GitHub-Api-Version' = '2026-03-10' }
-          function OptionalGet([string]$uri) {
-            try { return Invoke-RestMethod -Uri $uri -Headers $headers } catch {
-              if ([int]$_.Exception.Response.StatusCode -eq 404) { return $null }
-              throw
-            }
-          }
-          $raw = $headers.Clone()
-          $raw.Accept = 'application/vnd.github.raw+json'
-          $response = Invoke-WebRequest -Uri "$api/repos/$repo/contents/release.json?ref=$env:GITHUB_SHA" -Headers $raw
-          $text = if ($response.Content -is [byte[]]) { [Text.Encoding]::UTF8.GetString($response.Content) } else { [string]$response.Content }
-          $manifest = $text | ConvertFrom-Json
-          if ($manifest.version -cne '0.7.29' -or $manifest.sha256 -cne '653a2de95e9d55b236703d1a793931ce9ca586960b9b06b680bb27697e189eb4') { throw 'Rollback target mismatch.' }
-          $target = Invoke-RestMethod -Uri "$api/repos/$repo/releases/tags/v0.7.29" -Headers $headers
-          if ($target.draft -or $target.prerelease -or @($target.assets).Count -ne 1 -or $target.assets[0].name -cne 'twist-0.7.29-public.zip' -or $target.assets[0].digest -cne "sha256:$($manifest.sha256)" -or $target.assets[0].size -ne 8783928) { throw 'Activity-log release integrity mismatch.' }
-          $withdraw = OptionalGet "$api/repos/$repo/releases/tags/v0.7.30"
-          $withdrawTag = OptionalGet "$api/repos/$repo/git/ref/tags/v0.7.30"
-          if ($withdraw -and ($withdraw.id -ne 430650615 -or @($withdraw.assets).Count -ne 1 -or $withdraw.assets[0].name -cne 'twist-0.7.30-public.zip' -or $withdraw.assets[0].digest -cne 'sha256:2d7488c274754ccf0d76ce80e6c3b0138c313fc210e59cfdf0b74d7779d969a5')) { throw 'Unexpected release; refusing removal.' }
-          if ($withdrawTag -and $withdrawTag.object.sha -cne '3b6a888f7e2dbfea1a05618b213c7c50c61ec4a0') { throw 'Unexpected tag; refusing removal.' }
-          if ($withdraw) { Invoke-RestMethod -Method Delete -Uri "$api/repos/$repo/releases/$($withdraw.id)" -Headers $headers }
-          if ($withdrawTag) { Invoke-RestMethod -Method Delete -Uri "$api/repos/$repo/git/refs/tags/v0.7.30" -Headers $headers }
-          $request = @{ make_latest = 'true' } | ConvertTo-Json
-          $updated = Invoke-RestMethod -Method Patch -Uri "$api/repos/$repo/releases/$($target.id)" -Headers $headers -ContentType 'application/json' -Body $request
-          if ($updated.tag_name -cne 'v0.7.29') { throw 'Wrong latest release.' }
-          Write-Output 'Withdrawn 0.7.30; restored 0.7.29 as latest.'
       - name: Check package and publish
         shell: pwsh
         env:
