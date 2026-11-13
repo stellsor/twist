@@ -22,7 +22,7 @@
 
 Requires **Windows x64** and **.NET Framework 4.8**.
 
-1. Download **twist-0.7.31-public.zip** or a newer `twist-VERSION-public.zip` from the release’s **Assets**, then **extract the entire ZIP**.
+1. Download Twist from the [latest release](https://github.com/stellsor/twist/releases/latest), then **extract the entire ZIP**.
 2. Keep the **app** folder beside **twist Launcher.exe**. Open the launcher and choose **Local** for one account, or **Controller + Workers** for RDP.
 3. Equip your rod in GPO and choose your bait in **Settings**.
 4. Save a cast point over the water, then press **Start fishing**.
