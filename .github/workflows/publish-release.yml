@@ -4,12 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - src/**
-      - runtime/**
-      - scripts/**
-      - release.json
-      - CHANGELOG.md
-      - releases/**
+      - twist/**
       - .github/workflows/publish-release.yml
   workflow_dispatch:
 
@@ -33,7 +28,7 @@ jobs:
         with:
           node-version: 22
       - name: Verify source builds
-        run: node scripts/build.mjs --build-only
+        run: node twist/scripts/build.mjs --build-only
       - name: Check package and publish
         shell: pwsh
         env:
@@ -50,7 +45,7 @@ jobs:
           }
           $rawHeaders = $headers.Clone()
           $rawHeaders.Accept = 'application/vnd.github.raw+json'
-          $metadataUrl = "$api/repos/$repo/contents/release.json?ref=$revision"
+          $metadataUrl = "$api/repos/$repo/contents/twist/release.json?ref=$revision"
           $response = Invoke-WebRequest -Uri $metadataUrl -Headers $rawHeaders
           $metadata = if ($response.Content -is [byte[]]) { [System.Text.Encoding]::UTF8.GetString($response.Content) } else { [string]$response.Content }
           $manifest = $metadata | ConvertFrom-Json -AsHashtable
@@ -59,7 +54,7 @@ jobs:
           $assetName = "twist-$version-public.zip"
           if ($manifest.asset -cne "releases/$assetName" -or $manifest.sha256 -notmatch '^[0-9a-f]{64}$') { throw 'Invalid package metadata.' }
           $package = Join-Path $env:RUNNER_TEMP $assetName
-          $downloadUrl = "$api/repos/$repo/contents/$($manifest.asset)?ref=$revision"
+          $downloadUrl = "$api/repos/$repo/contents/twist/$($manifest.asset)?ref=$revision"
           Invoke-WebRequest -Uri $downloadUrl -Headers $rawHeaders -OutFile $package
           if ((Get-Item -LiteralPath $package).Length -ne [long]$manifest.bytes) { throw 'Package size mismatch.' }
           $actualHash = (Get-FileHash -LiteralPath $package -Algorithm SHA256).Hash.ToLowerInvariant()

@@ -22,7 +22,15 @@ const folder = path.join(root, 'artifacts', `twist-${version}`);
 if (path.dirname(folder) !== path.join(root, 'artifacts')) throw new Error('Invalid staging directory');
 await fs.rm(folder, { recursive: true, force: true });
 await fs.mkdir(path.join(folder, 'app'), { recursive: true });
-await fs.cp(path.join(root, 'runtime', 'app'), path.join(folder, 'app'), { recursive: true });
+const runtime = path.join(root, 'runtime', 'app');
+const runtimeFiles = new Set(['Dashboard.xaml', 'Worker.xaml', 'twist.ico', 'offsets.json', 'data/item-catalog.json']);
+await fs.cp(runtime, path.join(folder, 'app'), {
+  recursive: true,
+  filter: source => {
+    const relative = path.relative(runtime, source).split(path.sep).join('/');
+    return relative === '' || relative === 'data' || relative === 'assets' || relative.startsWith('assets/') || runtimeFiles.has(relative);
+  }
+});
 const executablePaths = {
   'twist Launcher.exe': 'src/Launcher/bin/Release/net48/twist Launcher.exe',
   'app/twist.exe': 'src/App/bin/Release/net48/twist.exe',

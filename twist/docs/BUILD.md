@@ -5,14 +5,16 @@ Install .NET SDK 8 and Node.js 20 or later on Windows x64. The projects target .
 From the repository root, run
 
 ```bat
-node scripts/build.mjs
+node twist/scripts/build.mjs
 ```
 
-The runnable folder is written to `artifacts/twist-0.7.31/`. The release ZIP is written to `releases/`, and `release.json` and `CHECKSUMS.sha256` are updated for the generated package.
+The runnable folder is written to `twist/artifacts/twist-0.7.31/`. The release ZIP is written to `twist/releases/`, and `twist/release.json` and `twist/CHECKSUMS.sha256` are updated for the generated package.
 
 Use `node scripts/build.mjs --build-only` to build a runnable folder without updating release metadata.
 
 ## Source layout
+
+Paths below are relative to the `twist/` project folder.
 
 - `src/App/` contains the fishing app, dashboard, input code and existing regression checks.
 - `src/Launcher/` contains the launcher and update validation.

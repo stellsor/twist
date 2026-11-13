@@ -1,11 +1,11 @@
 {
   "version": "0.7.31",
   "asset": "releases/twist-0.7.31-public.zip",
-  "sha256": "8a6fbf527b7fcd4d981f61beba403371ee3cc067d245ce0bf8c1cc82102c596a",
-  "bytes": 10525895,
+  "sha256": "1c89c187565afc93507a3ba9f37a6f14f756e07a11d22697f98ae1ff8713b44e",
+  "bytes": 10482737,
   "executable_sha256": {
-    "twist Launcher.exe": "2e9499623c6d35b9d2419b627b4d2d0a342982c3f1949e91384c23e4ec20435d",
-    "app/twist.exe": "3bc7927f0e173e47c3d0a173323e1572d12864c0646a39914e3ee6c8a64d07a9"
+    "twist Launcher.exe": "638dee20ef1f7b688dcd53353cad84c515abefc8a910025d9ff409fc4cc6a9e6",
+    "app/twist.exe": "063fa6fbc21eeaf0bf2ae7fe9e725bc96978c874077b48db862941281f6cca8e"
   },
   "notes": [
     "Added bounded backpack click recovery with Activity diagnostics.",
