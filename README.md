@@ -57,6 +57,8 @@ For multiple accounts, run one worker per RDP session and connect them to your c
 
 [Set up spawn alerts →](docs/USAGE.md#world-coordinates-and-spawn-history)
 
+Backpack equipment failures now trigger one recovery attempt and appear in Activity. If recovery fails, fishing stops. To report a problem, choose **Activity → Export TXT** and attach the file to the issue.
+
 Settings save automatically. Workers detect reopened Roblox clients; press **Start** to resume fishing.
 
 ## Screenshots
@@ -76,3 +78,7 @@ Actual UI with demo accounts and statistics. Screenshots are from 0.7.20; newer 
 The launcher checks for app updates and offsets when opened. When **Download update** appears, close the controllers and workers using that folder, then accept the update. Your settings and history carry over. The downloaded update ZIP is removed after successful verification and extraction.
 
 [Read the usage guide](docs/USAGE.md) for bait settings, fruit storage, alerts, and UI alignment.
+
+## Source and building
+
+The recovered C# source is available under **GPL-3.0**. See [build instructions](docs/BUILD.md), [the license](LICENSE), and [asset attribution](docs/ASSETS.md). Some recovered internal names remain generated.

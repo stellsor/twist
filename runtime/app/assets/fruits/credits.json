@@ -1,0 +1,228 @@
+{
+  "source": "https://grand-piece-online.fandom.com/wiki/Devil_Fruits",
+  "retrieved": "2026-10-25",
+  "icons": [
+    {
+      "name": "Kilo",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/b/b7/Kilo-fruit-preview.png/revision/latest?cb=20260903172303&format=original",
+      "sourceFile": "Kilo-fruit-preview.png",
+      "file": "Kilo-fruit-preview.png"
+    },
+    {
+      "name": "Suke",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/d/da/Suke-fruit-preview.png/revision/latest?cb=20260903172312&format=original",
+      "sourceFile": "Suke-fruit-preview.png",
+      "file": "Suke-fruit-preview.png"
+    },
+    {
+      "name": "Spin",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/b/ba/Spin-fruit-preview.png/revision/latest?cb=20260903172323&format=original",
+      "sourceFile": "Spin-fruit-preview.png",
+      "file": "Spin-fruit-preview.png"
+    },
+    {
+      "name": "Heal",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/f/fc/Heal-fruit-preview.png/revision/latest?cb=20260903172338&format=original",
+      "sourceFile": "Heal-fruit-preview.png",
+      "file": "Heal-fruit-preview.png"
+    },
+    {
+      "name": "Bari",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/b/b6/Bari-fruit-preview.png/revision/latest?cb=20260903172354&format=original",
+      "sourceFile": "Bari-fruit-preview.png",
+      "file": "Bari-fruit-preview.png"
+    },
+    {
+      "name": "Mero",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/b/b4/Mero-fruit-preview.png/revision/latest?cb=20260903172405&format=original",
+      "sourceFile": "Mero-fruit-preview.png",
+      "file": "Mero-fruit-preview.png"
+    },
+    {
+      "name": "Horo",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/c/cd/Horo-fruit-preview.png/revision/latest?cb=20260903172416&format=original",
+      "sourceFile": "Horo-fruit-preview.png",
+      "file": "Horo-fruit-preview.png"
+    },
+    {
+      "name": "Gomu",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/7/70/Gomu-fruit-preview.png/revision/latest?cb=20260903172428&format=original",
+      "sourceFile": "Gomu-fruit-preview.png",
+      "file": "Gomu-fruit-preview.png"
+    },
+    {
+      "name": "Bomb",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/4/47/Bomb-fruit-preview.png/revision/latest?cb=20260903172452&format=original",
+      "sourceFile": "Bomb-fruit-preview.png",
+      "file": "Bomb-fruit-preview.png"
+    },
+    {
+      "name": "Yomi",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/0/0b/Yomi-fruit-preview.png/revision/latest?cb=20260903163404&format=original",
+      "sourceFile": "Yomi-fruit-preview.png",
+      "file": "Yomi-fruit-preview.png"
+    },
+    {
+      "name": "Spring",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/a/ac/Spring-fruit-preview.png/revision/latest?cb=20260903172509&format=original",
+      "sourceFile": "Spring-fruit-preview.png",
+      "file": "Spring-fruit-preview.png"
+    },
+    {
+      "name": "Kira",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/9/9b/Kira-fruit-preview.png/revision/latest?cb=20260903163246&format=original",
+      "sourceFile": "Kira-fruit-preview.png",
+      "file": "Kira-fruit-preview.png"
+    },
+    {
+      "name": "Zushi",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/1/1f/Zushi-fruit-preview.png/revision/latest?cb=20260903163135&format=original",
+      "sourceFile": "Zushi-fruit-preview.png",
+      "file": "Zushi-fruit-preview.png"
+    },
+    {
+      "name": "Gura",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/8/89/Gura-fruit-preview.png/revision/latest?cb=20260903163151&format=original",
+      "sourceFile": "Gura-fruit-preview.png",
+      "file": "Gura-fruit-preview.png"
+    },
+    {
+      "name": "Suna",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/a/a0/Suna-fruit-preview.png/revision/latest?cb=20260903172521&format=original",
+      "sourceFile": "Suna-fruit-preview.png",
+      "file": "Suna-fruit-preview.png"
+    },
+    {
+      "name": "Hie",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/d/d4/Hie-fruit-preview.png/revision/latest?cb=20260903163224&format=original",
+      "sourceFile": "Hie-fruit-preview.png",
+      "file": "Hie-fruit-preview.png"
+    },
+    {
+      "name": "Ito",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/6/63/Ito-fruit-preview.png/revision/latest?cb=20260903172538&format=original",
+      "sourceFile": "Ito-fruit-preview.png",
+      "file": "Ito-fruit-preview.png"
+    },
+    {
+      "name": "Goro",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/f/f9/Goro-fruit-preview.png/revision/latest?cb=20260903163526&format=original",
+      "sourceFile": "Goro-fruit-preview.png",
+      "file": "Goro-fruit-preview.png"
+    },
+    {
+      "name": "Paw",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/4/4a/Paw-fruit-preview.png/revision/latest?cb=20260903172550&format=original",
+      "sourceFile": "Paw-fruit-preview.png",
+      "file": "Paw-fruit-preview.png"
+    },
+    {
+      "name": "Mera",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/c/c6/Mera-fruit-preview.png/revision/latest?cb=20260903163436&format=original",
+      "sourceFile": "Mera-fruit-preview.png",
+      "file": "Mera-fruit-preview.png"
+    },
+    {
+      "name": "Kage",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/6/69/Kage-fruit-preview.png/revision/latest?cb=20260903163235&format=original",
+      "sourceFile": "Kage-fruit-preview.png",
+      "file": "Kage-fruit-preview.png"
+    },
+    {
+      "name": "Magu",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/4/42/Magu-fruit-preview.png/revision/latest?cb=20260903162920&format=original",
+      "sourceFile": "Magu-fruit-preview.png",
+      "file": "Magu-fruit-preview.png"
+    },
+    {
+      "name": "Pika",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/0/09/Pika-fruit-preview.png/revision/latest?cb=20260903162907&format=original",
+      "sourceFile": "Pika-fruit-preview.png",
+      "file": "Pika-fruit-preview.png"
+    },
+    {
+      "name": "Yami",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/3/35/Yami-fruit-preview.png/revision/latest?cb=20260903183405&format=original",
+      "sourceFile": "Yami-fruit-preview.png",
+      "file": "Yami-fruit-preview.png"
+    },
+    {
+      "name": "Yuki",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/3/3a/Yuki-fruit-preview.png/revision/latest?cb=20260903163509&format=original",
+      "sourceFile": "Yuki-fruit-preview.png",
+      "file": "Yuki-fruit-preview.png"
+    },
+    {
+      "name": "Goru",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/d/d5/Goru-fruit-preview.png/revision/latest?cb=20260903163206&format=original",
+      "sourceFile": "Goru-fruit-preview.png",
+      "file": "Goru-fruit-preview.png"
+    },
+    {
+      "name": "Smoke",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/4/4e/Smoke-fruit-preview.png/revision/latest?cb=20260903162935&format=original",
+      "sourceFile": "Smoke-fruit-preview.png",
+      "file": "Smoke-fruit-preview.png"
+    },
+    {
+      "name": "Biscuit",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/e/e7/Biscuit-fruit-model.png/revision/latest?cb=20260902021855&format=original",
+      "sourceFile": "Biscuit-fruit-model.png",
+      "file": "Biscuit-fruit-preview.png"
+    },
+    {
+      "name": "Tori",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/a/ad/Tori-fruit-preview.png/revision/latest?cb=20260903231613&format=original",
+      "sourceFile": "Tori-fruit-preview.png",
+      "file": "Tori-fruit-preview.png"
+    },
+    {
+      "name": "Mochi",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/b/bb/Mochi-fruit-preview.png/revision/latest?cb=20260903163058&format=original",
+      "sourceFile": "Mochi-fruit-preview.png",
+      "file": "Mochi-fruit-preview.png"
+    },
+    {
+      "name": "Ope",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/6/6a/Ope-fruit-preview.png/revision/latest?cb=20260903183418&format=original",
+      "sourceFile": "Ope-fruit-preview.png",
+      "file": "Ope-fruit-preview.png"
+    },
+    {
+      "name": "Venom",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/f/f6/Venom-fruit-preview.png/revision/latest?cb=20260903172613&format=original",
+      "sourceFile": "Venom-fruit-preview.png",
+      "file": "Venom-fruit-preview.png"
+    },
+    {
+      "name": "Buddha",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/7/79/Buddha-fruit-preview.png/revision/latest?cb=20260903172623&format=original",
+      "sourceFile": "Buddha-fruit-preview.png",
+      "file": "Buddha-fruit-preview.png"
+    },
+    {
+      "name": "Ptero",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/5/5c/Ptero-fruit-preview.png/revision/latest?cb=20260903163037&format=original",
+      "sourceFile": "Ptero-fruit-preview.png",
+      "file": "Ptero-fruit-preview.png"
+    },
+    {
+      "name": "Dragon",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/c/c0/Dragon_no_bg.png/revision/latest?cb=20260114041224&format=original",
+      "sourceFile": "Dragon no bg.png",
+      "file": "Dragon-fruit-preview.png"
+    },
+    {
+      "name": "Soul",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/5/5d/Soul_no_bg.png/revision/latest?cb=20260114041503&format=original",
+      "sourceFile": "Soul no bg.png",
+      "file": "Soul-fruit-preview.png"
+    },
+    {
+      "name": "Leopard",
+      "url": "https://static.wikia.nocookie.net/grand-piece-online/images/8/8c/Leopard-fruit-preview.png/revision/latest?cb=20260903163315&format=original",
+      "sourceFile": "Leopard-fruit-preview.png",
+      "file": "Leopard-fruit-preview.png"
+    }
+  ]
+}

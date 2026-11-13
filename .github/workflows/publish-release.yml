@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
     paths:
+      - src/**
+      - runtime/**
+      - scripts/**
       - release.json
       - CHANGELOG.md
       - releases/**
@@ -22,6 +25,15 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify source builds
+        run: node scripts/build.mjs --build-only
       - name: Check package and publish
         shell: pwsh
         env:
@@ -77,13 +89,13 @@ jobs:
               try { $readmeText = $reader.ReadToEnd() } finally { $reader.Dispose() }
               if ([regex]::IsMatch($readmeText, '(?m)^## Distribution\s*$')) { throw 'Distribution section must not be packaged.' }
             }
-            $executables = $manifest.protected_executables
-            if ($executables.Count -ne 2 -or -not $executables.ContainsKey('twist Launcher.exe') -or -not $executables.ContainsKey('app/twist.exe')) { throw 'Missing protected executable hashes.' }
+            $executables = $manifest.executable_sha256
+            if ($executables.Count -ne 2 -or -not $executables.ContainsKey('twist Launcher.exe') -or -not $executables.ContainsKey('app/twist.exe')) { throw 'Missing executable hashes.' }
             foreach ($binary in $executables.Keys) {
               $entry = $zip.GetEntry($prefix + $binary)
               $stream = $entry.Open()
               try { $hash = [Convert]::ToHexString([System.Security.Cryptography.SHA256]::HashData($stream)).ToLowerInvariant() } finally { $stream.Dispose() }
-              if ($hash -cne $executables[$binary]) { throw "Protected executable mismatch: $binary" }
+              if ($hash -cne $executables[$binary]) { throw "Executable mismatch: $binary" }
             }
           } finally { $zip.Dispose() }
 
@@ -115,32 +127,3 @@ jobs:
           }
           Write-Host "Published $($release.html_url)"
 
-          # Keep the release pages in sync with the short notes in the changelog.
-          $changesResponse = Invoke-WebRequest -Uri "$api/repos/$repo/contents/CHANGELOG.md?ref=$revision" -Headers $rawHeaders
-          $changes = if ($changesResponse.Content -is [byte[]]) { [System.Text.Encoding]::UTF8.GetString($changesResponse.Content) } else { [string]$changesResponse.Content }
-          $notesByVersion = @{}
-          foreach ($section in [regex]::Matches($changes, '(?ms)^## (?:\[(?<version>\d+\.\d+\.\d+)\]\([^\r\n]+\)|(?<version>\d+\.\d+\.\d+))\r?\n(?<notes>.*?)(?=^## |\z)')) {
-            $lines = @($section.Groups['notes'].Value -split '\r?\n' | Where-Object { $_.StartsWith('- ') })
-            if ($lines.Count -gt 0) { $notesByVersion[$section.Groups['version'].Value] = $lines -join "`n" }
-          }
-          $published = Invoke-RestMethod -Uri "$api/repos/$repo/releases?per_page=100" -Headers $headers
-          $descriptionsChecked = 0
-          foreach ($item in $published) {
-            if ($item.draft -or $item.prerelease -or $item.tag_name -notmatch '^v(\d+\.\d+\.\d+)$') { continue }
-            $itemVersion = $item.tag_name.Substring(1)
-            if (-not $notesByVersion.ContainsKey($itemVersion)) { continue }
-            $descriptionsChecked++
-            $itemAssets = @($item.assets)
-            if ($itemAssets.Count -ne 1 -or $itemAssets[0].name -cne "twist-$itemVersion-public.zip" -or $itemAssets[0].digest -notmatch '^sha256:([0-9a-f]{64})$') { throw "Unexpected download for $($item.tag_name); descriptions were not updated." }
-            $itemHash = $itemAssets[0].digest.Substring(7)
-            $description = $notesByVersion[$itemVersion] + "`n`n<details>`n<summary>Checksum</summary>`n`nSHA-256: ``$itemHash```n`n</details>"
-            if ($item.body -ceq $description) { continue }
-            $request = @{ body = $description } | ConvertTo-Json
-            $updated = Invoke-RestMethod -Method Patch -Uri "$api/repos/$repo/releases/$($item.id)" -Headers $headers -ContentType 'application/json' -Body $request
-            if ($updated.body -cne $description -or $updated.tag_name -cne $item.tag_name -or $updated.target_commitish -cne $item.target_commitish -or $updated.draft -or $updated.prerelease) { throw 'Release description update did not match.' }
-            $beforeAssets = ConvertTo-Json -Compress -InputObject @($itemAssets | ForEach-Object { "$($_.id)|$($_.name)|$($_.size)|$($_.digest)" })
-            $afterAssets = ConvertTo-Json -Compress -InputObject @($updated.assets | ForEach-Object { "$($_.id)|$($_.name)|$($_.size)|$($_.digest)" })
-            if ($beforeAssets -cne $afterAssets) { throw 'Release downloads changed unexpectedly.' }
-            Write-Host "Updated notes for $($item.tag_name)"
-          }
-          if ($descriptionsChecked -eq 0) { throw 'No matching release descriptions were found.' }

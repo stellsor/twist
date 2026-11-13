@@ -1,15 +1,15 @@
 {
-  "version": "0.7.29",
-  "asset": "releases/twist-0.7.29-public.zip",
-  "sha256": "653a2de95e9d55b236703d1a793931ce9ca586960b9b06b680bb27697e189eb4",
-  "bytes": 8783928,
-  "protected_executables": {
-    "twist Launcher.exe": "32036951d3def0da0fc8eba1c02e3146f117506cd744b70ebe8bb52e89624851",
-    "app/twist.exe": "c3ceb9c43ce7c5ca98aab71ee4bdf3ad803e99cf636c7f6c79072632148dd12e"
+  "version": "0.7.31",
+  "asset": "releases/twist-0.7.31-public.zip",
+  "sha256": "d0aa7b8bcfb7252c48b773bc6c0ee828a4047c1d7820cab62c5c8fede79b2f00",
+  "bytes": 8776085,
+  "executable_sha256": {
+    "twist Launcher.exe": "2e9499623c6d35b9d2419b627b4d2d0a342982c3f1949e91384c23e4ec20435d",
+    "app/twist.exe": "3bc7927f0e173e47c3d0a173323e1572d12864c0646a39914e3ee6c8a64d07a9"
   },
   "notes": [
-    "Added a searchable activity log with warnings and clear fishing stop reasons.",
-    "Worker activity now appears in the controller and stays saved after restarting.",
-    "Added local crash reports and last-run details for unexpected exits."
+    "Added bounded backpack click recovery with Activity diagnostics.",
+    "Added Activity TXT export and duplicate-fruit decision details.",
+    "Published recovered, buildable source under GPL-3.0."
   ]
 }

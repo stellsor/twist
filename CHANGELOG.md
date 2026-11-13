@@ -2,6 +2,13 @@
 
 [Download](https://github.com/stellsor/twist/releases/latest) · [Setup](docs/USAGE.md)
 
+## 0.7.31
+
+- Added bounded backpack equipment recovery and detailed failed-click Activity events.
+- Added Activity TXT export and recorded duplicate-fruit ownership decisions.
+- Published recovered source under GPL-3.0 with build instructions and runtime assets.
+- Known limitation remains in the inherited dashboard-close self-test.
+
 ## [0.7.29](https://github.com/Stellsor/twist/releases/tag/v0.7.29)
 
 - Added a searchable activity log with warnings and clear fishing stop reasons.

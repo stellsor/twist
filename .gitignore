@@ -1,19 +1,22 @@
-# ignore
-*.cs
+# Generated build output
+**/bin/
+**/obj/
+artifacts/
 *.pdb
 *.map
-source.zip
 *mapping.xml
-app/profiles/
-app/logs/
-app/test-results.txt
-app/data/catch-round-counting.txt
-app/data/catches.json*
-app/data/rounds.json*
+.vs/
 
+# Local runtime state
+**/profiles/
+**/logs/
+**/test-results.txt
+**/startup-error.txt
 **/discord-settings.json
 **/fruit-alerts.json*
-
 **/discord-draft.json*
 **/pending-profiles.json*
 **/controller-preferences.json*
+**/data/catch-round-counting.txt
+**/data/catches.json*
+**/data/rounds.json*

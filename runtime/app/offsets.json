@@ -1,0 +1,79 @@
+{
+  "Source": "https://offsets.imtheo.lol/version-9ac8595712b447a7/offsets.json",
+  "Roblox Version": "version-9ac8595712b447a7",
+  "Dumped At": "20:17 20/10/2026",
+  "Note": "Subset copied from the supplied Theo version JSON; offsets are version-specific and do not guarantee safe writes or input support.",
+  "Offsets": {
+    "FakeDataModel": {
+      "Pointer": 150312976,
+      "RealDataModel": 504
+    },
+    "Instance": {
+      "NameContainer": 104,
+      "Name": 0,
+      "ChildrenStart": 112,
+      "ChildrenEnd": 8,
+      "ClassDescriptor": 24,
+      "ClassName": 8,
+      "Parent": 96
+    },
+    "Misc": {
+      "StringLength": 16
+    },
+    "Player": {
+      "LocalPlayer": 280,
+      "UserId": 184,
+      "DisplayName": 288,
+      "ModelInstance": 656
+    },
+    "GuiObject": {
+      "ScreenGui_Enabled": 1196,
+      "Visible": 1429,
+      "Position": 1272,
+      "Size": 1304,
+      "BackgroundColor3": 1320
+    },
+    "DataModel": {
+      "PlaceId": 384,
+      "GameId": 376
+    },
+    "BasePart": {
+      "Primitive": 376,
+      "Transparency": 280,
+      "Color3": 18,
+      "Shape": 416,
+      "Massless": 290,
+      "CastShadow": 288,
+      "Locked": 289,
+      "Reflectance": 244
+    },
+    "Primitive": {
+      "Position": 212,
+      "Validate": 6,
+      "Owner": 536,
+      "Size": 452,
+      "Rotation": 176,
+      "Flags": 446,
+      "Material": 0,
+      "AssemblyLinearVelocity": 224,
+      "AssemblyAngularVelocity": 236
+    },
+    "ProximityPrompt": {
+      "ActionText": 152,
+      "ObjectText": 184,
+      "HoldDuration": 264,
+      "MaxActivationDistance": 272,
+      "KeyCode": 268,
+      "GamepadKeyCode": 260,
+      "Enabled": 286,
+      "RequiresLineOfSight": 287
+    },
+    "Attachment": {
+      "Position": 172
+    },
+    "Model": {
+      "PrimaryPart": 576,
+      "Scale": 300
+    }
+  }
+}
