@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createZip } from './zip.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const version = '0.7.31';
@@ -18,6 +19,8 @@ for (const project of ['App', 'Launcher']) {
   run(dotnet, ['build', `src/${project}/Twist.${project}.csproj`, '-c', 'Release', '--nologo']);
 }
 const folder = path.join(root, 'artifacts', `twist-${version}`);
+if (path.dirname(folder) !== path.join(root, 'artifacts')) throw new Error('Invalid staging directory');
+await fs.rm(folder, { recursive: true, force: true });
 await fs.mkdir(path.join(folder, 'app'), { recursive: true });
 await fs.cp(path.join(root, 'runtime', 'app'), path.join(folder, 'app'), { recursive: true });
 const executablePaths = {
@@ -35,7 +38,7 @@ console.log(`Built ${folder}`);
 if (!buildOnly) {
   const asset = `releases/twist-${version}-public.zip`;
   await fs.mkdir(path.join(root, 'releases'), { recursive: true });
-  run('tar', ['-a', '-cf', asset, '-C', 'artifacts', `twist-${version}`]);
+  await createZip(folder, path.join(root, asset));
   const data = await fs.readFile(path.join(root, asset));
   const manifest = {
     version,

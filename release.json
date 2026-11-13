@@ -1,8 +1,8 @@
 {
   "version": "0.7.31",
   "asset": "releases/twist-0.7.31-public.zip",
-  "sha256": "d0aa7b8bcfb7252c48b773bc6c0ee828a4047c1d7820cab62c5c8fede79b2f00",
-  "bytes": 8776085,
+  "sha256": "8a6fbf527b7fcd4d981f61beba403371ee3cc067d245ce0bf8c1cc82102c596a",
+  "bytes": 10525895,
   "executable_sha256": {
     "twist Launcher.exe": "2e9499623c6d35b9d2419b627b4d2d0a342982c3f1949e91384c23e4ec20435d",
     "app/twist.exe": "3bc7927f0e173e47c3d0a173323e1572d12864c0646a39914e3ee6c8a64d07a9"
