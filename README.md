@@ -13,15 +13,17 @@
   &nbsp;·&nbsp;
   <a href="twist/docs/examples/README.md">Screenshots</a>
   &nbsp;·&nbsp;
-  <a href="CHANGELOG.md">What's new</a>
+  <a href="twist/CHANGELOG.md">What's new</a>
 </p>
 
 ---
 
 ## Start fishing
 
-1. Download **twist-VERSION-public.zip** from the [latest release](https://github.com/stellsor/twist/releases/latest) and **extract the entire ZIP**.
-2. Open **twist Launcher.exe** and choose **Local** for one account, or **Controller + Workers** for RDP.
+Requires **Windows x64** and **.NET Framework 4.8**.
+
+1. Download **twist-0.7.31-public.zip** or a newer `twist-VERSION-public.zip` from the release’s **Assets**, then **extract the entire ZIP**.
+2. Keep the **app** folder beside **twist Launcher.exe**. Open the launcher and choose **Local** for one account, or **Controller + Workers** for RDP.
 3. Equip your rod in GPO and choose your bait in **Settings**.
 4. Save a cast point over the water, then press **Start fishing**.
 
@@ -47,17 +49,34 @@ For multiple accounts, run one worker per RDP session and connect them to your c
 | --- | --- |
 | **Auto fishing** | Casts, waits for a bite, and controls the fishing minigame. |
 | **Bait management** | Uses Common or the best available bait, with a custom restock threshold and purchase amount. |
-| **Fruit handling** | Equips and stores new devil fruits, with optional duplicate dropping. |
+| **Fruit handling** | Equips and stores new devil fruits, with optional duplicate dropping and bounded backpack click recovery. |
 | **World** | Worker coordinates, All Seeing Eye countdowns, and saved AFK history. |
 | **Spawn alerts** | Sends the exact fruit-spawn announcement and Eye pulse coordinates to Discord, with saved history in World. Requires an All Seeing Eye. |
-| **Activity log** | Search saved events, see why fishing stopped, and review local crash details under Settings → Activity. |
+| **Activity log** | Search saved events, see why fishing stopped, and export saved Activity to a TXT file. |
 | **Catch tracker** | Tracks catches, runtime, fish per hour, and catch history. |
 | **Live inventories** | Shows fish and stored fruits with images, quantities, rarity filters, and a Legendary fish owned total. |
 | **Discord alerts** | Reports stored fruits and fishing stats, with optional Mythical pings. |
 
 [Set up spawn alerts →](twist/docs/USAGE.md#world-coordinates-and-spawn-history)
 
-Backpack equipment failures now trigger one recovery attempt and appear in Activity. If recovery fails, fishing stops. To report a problem, choose **Activity → Export TXT** and attach the file to the issue.
+## Fruit storage and duplicate dropping
+
+Enable automatic fruit handling in the account’s Settings. With duplicate dropping enabled, Twist stores a fruit when no copy is already stored and drops the carried duplicate when a stored copy is detected. Twist checks the exact equipped fruit and stored ownership before sending the drop input.
+
+If a backpack equip attempt fails, Twist records the failure, reopens the backpack and resolves the same item again. The retry temporarily bypasses saved UI alignment offsets. After two failed attempts, fishing stops with an explanation. The recovery applies to both storing fruits and dropping duplicates.
+
+The recovery has passed simulated checks. Confirmation on the affected user’s setup is still needed.
+
+## Send an Activity log
+
+If fruit handling fails or clicks the wrong place, reproduce it on the latest version, then
+
+1. Open **Activity** using the button at the bottom of Twist or **Settings → Activity**.
+2. Click **Export TXT**.
+3. Choose a location and save the `.txt` file.
+4. Attach that file to [the backpack issue](https://github.com/stellsor/twist/issues/1), or your own issue. Include what happened and whether duplicate dropping was enabled.
+
+The export includes all saved accounts and events, even when the Activity view is filtered. Account names and event details are included. Webhook URLs and pairing codes use the existing redaction rules. You can review the file before sharing it.
 
 Settings save automatically. Workers detect reopened Roblox clients; press **Start** to resume fishing.
 
@@ -75,7 +94,13 @@ Actual UI with demo accounts and statistics. Screenshots are from 0.7.20; newer 
 
 ## Updates
 
-The launcher checks for app updates and offsets when opened. When **Download update** appears, close the controllers and workers using that folder, then accept the update. Your settings and history carry over. The downloaded update ZIP is removed after successful verification and extraction.
+1. Close the controllers and workers using the installation folder.
+2. Reopen **twist Launcher.exe** and accept **Download update** when offered.
+3. Open your usual Local, Controller or Worker mode after installation. Press **Start fishing** to resume.
+
+The launcher checks GitHub Releases for app updates and verifies the downloaded package before installation. Auto-update compatibility with 0.7.31 was checked using the original 0.7.29 launcher.
+
+If no update is offered or installation fails, download the latest `twist-VERSION-public.zip`, extract it completely into a new folder and open its launcher. Settings and history are stored separately under your Windows user account.
 
 [Read the usage guide](twist/docs/USAGE.md) for bait settings, fruit storage, alerts, and UI alignment.
 
