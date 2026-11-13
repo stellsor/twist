@@ -976,7 +976,7 @@ internal sealed class RecoveredType16
                 if (dialog.ShowDialog(window) == true)
                 {
                     System.IO.File.WriteAllText(dialog.FileName, ActivityTextExport.Format(activityLog.RecoveredMethod368()), new System.Text.UTF8Encoding(true));
-                    RecoveredMethod93("Activity log exported. Attach the TXT file to github.com/stellsor/twist/issues/1.");
+                    RecoveredMethod93("Activity log exported. Report a problem at github.com/stellsor/twist/issues/new and attach the TXT file.");
                 }
             }
             catch (Exception error)

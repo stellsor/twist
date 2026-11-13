@@ -128,7 +128,7 @@ internal sealed class RecoveredType232 : RecoveredType214
                 details = "Target details unavailable: " + error.Message;
             }
             ui.log("Backpack click failed · " + reason + " · " + details
-                + " · Open Activity, choose Export TXT, save the log and attach it to github.com/stellsor/twist/issues/1.");
+                + " · Open Activity, choose Export TXT, save the log and attach it when reporting a problem at github.com/stellsor/twist/issues/new.");
         }
 
         public void RecoverBackpackClick(CancellationToken cancellationToken)

@@ -2,6 +2,11 @@
 
 [Download](https://github.com/stellsor/twist/releases/latest) · [Setup](docs/USAGE.md)
 
+## 0.7.32
+
+- Made Activity TXT export and reporting instructions apply to all users.
+- Removed the individual issue link from export notices, recovery messages and documentation.
+
 ## 0.7.31
 
 - Added bounded backpack equipment recovery and detailed failed-click Activity events.

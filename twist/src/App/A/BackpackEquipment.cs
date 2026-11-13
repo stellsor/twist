@@ -81,7 +81,7 @@ internal static class RecoveredType100
 							P_0.ReportBackpackClickFailure("attempt " + failedClicks + "/2: " + error.Message);
 							if (failedClicks >= 2)
 							{
-								throw new BackpackEquipmentException("Backpack click failed twice; fishing stopped to preserve the carried fruit. Open Activity, choose Export TXT, save the log and attach it to github.com/stellsor/twist/issues/1.");
+								throw new BackpackEquipmentException("Backpack click failed twice; fishing stopped to preserve the carried fruit. Open Activity, choose Export TXT, save the log and attach it when reporting a problem at github.com/stellsor/twist/issues/new.");
 							}
 							try
 							{
@@ -93,7 +93,7 @@ internal static class RecoveredType100
 							}
 							catch (Exception recoveryError)
 							{
-								throw new BackpackEquipmentException("Backpack click recovery failed; fishing stopped. " + recoveryError.Message + " Open Activity, choose Export TXT, save the log and attach it to github.com/stellsor/twist/issues/1.");
+								throw new BackpackEquipmentException("Backpack click recovery failed; fishing stopped. " + recoveryError.Message + " Open Activity, choose Export TXT, save the log and attach it when reporting a problem at github.com/stellsor/twist/issues/new.");
 							}
 						}
 					}
@@ -133,7 +133,7 @@ internal static class RecoveredType100
 		}
 		if (failedClicks > 0)
 		{
-			throw new BackpackEquipmentException("Backpack click recovery failed; fishing stopped. " + text + " Open Activity, choose Export TXT, save the log and attach it to github.com/stellsor/twist/issues/1.");
+			throw new BackpackEquipmentException("Backpack click recovery failed; fishing stopped. " + text + " Open Activity, choose Export TXT, save the log and attach it when reporting a problem at github.com/stellsor/twist/issues/new.");
 		}
 		throw new Exception(text + " Retrying backpack recovery.");
 	}

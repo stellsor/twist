@@ -74,7 +74,7 @@ If fruit handling fails or clicks the wrong place, reproduce it on the latest ve
 1. Open **Activity** using the button at the bottom of Twist or **Settings → Activity**.
 2. Click **Export TXT**.
 3. Choose a location and save the `.txt` file.
-4. Attach that file to [the backpack issue](https://github.com/stellsor/twist/issues/1), or your own issue. Include what happened and whether duplicate dropping was enabled.
+4. Attach that file to [a new GitHub issue](https://github.com/stellsor/twist/issues/new). Include what happened and whether duplicate dropping was enabled.
 
 The export includes all saved accounts and events, even when the Activity view is filtered. Account names and event details are included. Webhook URLs and pairing codes use the existing redaction rules. You can review the file before sharing it.
 

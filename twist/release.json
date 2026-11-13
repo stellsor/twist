@@ -1,15 +1,14 @@
 {
-  "version": "0.7.31",
-  "asset": "releases/twist-0.7.31-public.zip",
-  "sha256": "1c89c187565afc93507a3ba9f37a6f14f756e07a11d22697f98ae1ff8713b44e",
-  "bytes": 10482737,
+  "version": "0.7.32",
+  "asset": "releases/twist-0.7.32-public.zip",
+  "sha256": "b1fb17df4834eae8d73868075be4ac0a14ded18933c3197c3783bf29022c7827",
+  "bytes": 10484428,
   "executable_sha256": {
-    "twist Launcher.exe": "638dee20ef1f7b688dcd53353cad84c515abefc8a910025d9ff409fc4cc6a9e6",
-    "app/twist.exe": "063fa6fbc21eeaf0bf2ae7fe9e725bc96978c874077b48db862941281f6cca8e"
+    "twist Launcher.exe": "f46bc55abda60ffebc717980e4403ce5efde91179eb2bd9ddc0930d6be63a14e",
+    "app/twist.exe": "0fa1851242beaf19147ff2f7a3ec31244ff3e8ae16a70243adea470cc5e15ef2"
   },
   "notes": [
-    "Added bounded backpack click recovery with Activity diagnostics.",
-    "Added Activity TXT export and duplicate-fruit decision details.",
-    "Published recovered, buildable source under GPL-3.0."
+    "Made Activity TXT reporting instructions apply to all users and new issues.",
+    "Removed links to an individual report from export notices and backpack recovery messages."
   ]
 }

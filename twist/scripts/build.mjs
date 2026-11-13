@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { createZip } from './zip.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const version = '0.7.31';
+const version = '0.7.32';
 const buildOnly = process.argv.includes('--build-only');
 const dotnet = process.env.DOTNET_EXE || 'dotnet';
 function run(command, args) {
@@ -55,9 +55,8 @@ if (!buildOnly) {
     bytes: data.length,
     executable_sha256: executableHashes,
     notes: [
-      'Added bounded backpack click recovery with Activity diagnostics.',
-      'Added Activity TXT export and duplicate-fruit decision details.',
-      'Published recovered, buildable source under GPL-3.0.'
+      'Made Activity TXT reporting instructions apply to all users and new issues.',
+      'Removed links to an individual report from export notices and backpack recovery messages.'
     ]
   };
   await fs.writeFile(path.join(root, 'release.json'), JSON.stringify(manifest, null, 2) + '\n');
